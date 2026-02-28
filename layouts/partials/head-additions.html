@@ -1,8 +1,13 @@
 <!-- Mario Bros Theme Additions -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="{{ "css/custom.css" | relURL }}">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+
+{{- $customCSS := resources.Get "css/custom.css" -}}
+{{- if $customCSS }}
+  {{- $customCSS := $customCSS | resources.Minify }}
+  <link rel="stylesheet" href="{{ $customCSS.RelPermalink }}">
+{{- end }}
 
 <!-- Favicon emojis -->
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍄</text></svg>">
