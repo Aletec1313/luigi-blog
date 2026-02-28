@@ -1,168 +1,70 @@
 /* ========================================
-   MARIO BROS THEME - The Complete Experience
-   Para: mario-luigi-alex.github.io
+   MARIO BROS THEME - Full Version
    ======================================== */
 
-/* Importar fuentes pixeladas */
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
 
-/* Variables de colores Mario Bros */
 :root {
-  /* Colores principales */
   --mario-red: #E60012;
-  --mario-red-dark: #B3000E;
+  --mario-dark: #B3000E;
   --luigi-green: #4A9C2D;
-  --luigi-green-dark: #3A7A23;
-  
-  /* Colores del mundo */
+  --luigi-dark: #3A7A23;
   --sky-blue: #5C94FC;
-  --sky-blue-light: #87CEEB;
-  --ground-brown: #8B4513;
-  --ground-brown-light: #A0522D;
-  --brick-color: #E86A17;
-  --brick-color-dark: #C45A14;
-  --question-gold: #F8B800;
-  --coin-yellow: #FFD700;
-  --pipe-green: #00AA00;
-  --pipe-green-dark: #008800;
-  
-  /* Texto */
-  --text-dark: #1a1a2e;
-  --text-light: #ffffff;
-  --text-gray: #4a4a4a;
-  
-  /* Fuentes */
-  --font-pixel: 'Press Start 2P', cursive;
-  --font-retro: 'VT323', monospace;
+  --sky-light: #87CEEB;
+  --ground: #8B4513;
+  --brick: #E86A17;
+  --gold: #F8B800;
+  --coin: #FFD700;
+  --pipe: #00AA00;
+  --dark: #1a1a2e;
+  --pixel: 'Press Start 2P', cursive;
+  --retro: 'VT323', monospace;
 }
 
-/* ========================================
-   BASE & FONDO
-   ======================================== */
-
+/* Background */
 body {
-  background: linear-gradient(
-    180deg,
-    var(--sky-blue) 0%,
-    var(--sky-blue-light) 50%,
-    #87CEFA 100%
-  ) !important;
-  background-attachment: fixed !important;
-  min-height: 100vh;
-  font-family: var(--font-retro) !important;
+  background: linear-gradient(180deg, var(--sky-blue) 0%, var(--sky-light) 100%) !important;
+  font-family: var(--retro) !important;
   font-size: 20px !important;
 }
 
-/* Nubes decorativas en el fondo */
-body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: 
-    radial-gradient(circle at 20% 20%, rgba(255,255,255,0.8) 20px, transparent 20px),
-    radial-gradient(circle at 25% 22%, rgba(255,255,255,0.8) 25px, transparent 25px),
-    radial-gradient(circle at 30% 20%, rgba(255,255,255,0.8) 20px, transparent 20px),
-    radial-gradient(circle at 70% 40%, rgba(255,255,255,0.6) 18px, transparent 18px),
-    radial-gradient(circle at 75% 42%, rgba(255,255,255,0.6) 22px, transparent 22px),
-    radial-gradient(circle at 80% 40%, rgba(255,255,255,0.6) 18px, transparent 18px),
-    radial-gradient(circle at 10% 60%, rgba(255,255,255,0.4) 15px, transparent 15px),
-    radial-gradient(circle at 90% 70%, rgba(255,255,255,0.5) 20px, transparent 20px);
-  pointer-events: none;
-  z-index: -1;
-}
-
-/* ========================================
-   HEADER - Estilo Castillo/Nube
-   ======================================== */
-
+/* Header */
 .bg-black {
-  background: linear-gradient(
-    180deg,
-    var(--sky-blue) 0%,
-    var(--sky-blue-light) 70%,
-    rgba(255,255,255,0.3) 100%
-  ) !important;
-  border-bottom: 8px solid var(--ground-brown) !important;
-  position: relative;
+  background: linear-gradient(180deg, var(--sky-blue) 0%, var(--sky-light) 100%) !important;
+  border-bottom: 8px solid var(--ground) !important;
 }
 
-/* Borde de tierra estilo Mario */
-.bg-black::after {
-  content: '';
-  position: absolute;
-  bottom: -16px;
-  left: 0;
-  right: 0;
-  height: 8px;
-  background: repeating-linear-gradient(
-    90deg,
-    var(--ground-brown) 0px,
-    var(--ground-brown) 15px,
-    var(--ground-brown-light) 15px,
-    var(--ground-brown-light) 17px,
-    var(--ground-brown) 17px,
-    var(--ground-brown) 32px
-  );
+/* Logo */
+nav .f3.fw2 {
+  font-family: var(--pixel) !important;
+  font-size: 0.9rem !important;
+  color: white !important;
+  text-shadow: 3px 3px 0 var(--mario-red), -1px -1px 0 #000 !important;
 }
 
-/* Logo/Nombre del sitio */
-nav .f3.fw2.hover-white {
-  font-family: var(--font-pixel) !important;
-  font-size: 1rem !important;
-  color: var(--text-light) !important;
-  text-shadow: 
-    3px 3px 0 var(--mario-red-dark),
-    -1px -1px 0 var(--mario-red-dark),
-    1px -1px 0 var(--mario-red-dark),
-    -1px 1px 0 var(--mario-red-dark),
-    1px 1px 0 var(--mario-red-dark) !important;
-  letter-spacing: 2px !important;
-}
-
-nav .f3.fw2.hover-white:hover {
-  color: var(--coin-yellow) !important;
-  transform: scale(1.05);
-  transition: all 0.3s ease;
-}
-
-/* Links de navegación */
+/* Nav links - Pipe style */
 nav a.hover-white {
-  font-family: var(--font-pixel) !important;
-  font-size: 0.7rem !important;
-  color: var(--text-light) !important;
-  background: var(--pipe-green) !important;
-  padding: 8px 16px !important;
+  font-family: var(--pixel) !important;
+  font-size: 0.6rem !important;
+  background: var(--pipe) !important;
+  color: white !important;
+  padding: 10px 15px !important;
+  border: 3px solid #006600 !important;
   border-radius: 8px 8px 0 0 !important;
-  border: 3px solid var(--pipe-green-dark) !important;
-  border-bottom: none !important;
-  text-shadow: 2px 2px 0 rgba(0,0,0,0.3) !important;
-  box-shadow: 0 -4px 0 var(--pipe-green-dark) inset !important;
-  transition: all 0.2s ease !important;
-  margin: 0 5px !important;
+  box-shadow: 0 -4px 0 #006600 inset !important;
 }
 
 nav a.hover-white:hover {
   background: var(--luigi-green) !important;
-  transform: translateY(-3px);
-  box-shadow: 0 -4px 0 rgba(0,0,0,0.3) inset, 0 4px 8px rgba(0,0,0,0.3) !important;
+  transform: translateY(-3px) !important;
 }
 
-/* Título principal */
-.tc-l .f2.f-subheadline-l.fw2 {
-  font-family: var(--font-pixel) !important;
-  font-size: 2rem !important;
+/* Main title */
+.tc-l .f2 {
+  font-family: var(--pixel) !important;
+  font-size: 1.8rem !important;
   color: var(--mario-red) !important;
-  text-shadow: 
-    4px 4px 0 var(--text-dark),
-    -2px -2px 0 #fff,
-    2px -2px 0 #fff,
-    -2px 2px 0 #fff,
-    2px 2px 0 #fff !important;
-  letter-spacing: 3px !important;
+  text-shadow: 4px 4px 0 #fff, -2px -2px 0 #000, 4px 4px 0 #000 !important;
   animation: bounce 2s infinite;
 }
 
@@ -171,114 +73,84 @@ nav a.hover-white:hover {
   50% { transform: translateY(-10px); }
 }
 
-/* Subtítulo */
-.fw1.f5.f3-l.white-80 {
-  font-family: var(--font-retro) !important;
-  font-size: 1.3rem !important;
-  color: var(--text-light) !important;
-  text-shadow: 2px 2px 0 rgba(0,0,0,0.5) !important;
-}
-
-/* ========================================
-   POSTS - Estilo Bloques/Bloques de interrogación
-   ======================================== */
-
-main article.bb.b--black-10,
-.pa3.pa4-ns article {
-  background: linear-gradient(
-    135deg,
-    #fff 0%,
-    #f8f8f8 100%
-  ) !important;
-  border: 4px solid var(--brick-color) !important;
-  border-radius: 8px !important;
+/* Posts - Brick blocks */
+article.bb {
+  background: #fff !important;
+  border: 4px solid var(--brick) !important;
+  border-radius: 4px !important;
+  box-shadow: 4px 4px 0 rgba(0,0,0,0.2) !important;
   position: relative !important;
-  overflow: hidden !important;
-  box-shadow: 
-    6px 6px 0 rgba(0,0,0,0.2),
-    inset -4px -4px 0 rgba(0,0,0,0.1) !important;
-  margin-bottom: 30px !important;
 }
 
-/* Bloque de interrogación decorativo */
-main article::before {
+/* Question block */
+article.bb::before {
   content: '?';
   position: absolute;
-  top: -10px;
-  right: 20px;
-  width: 40px;
-  height: 40px;
-  background: var(--question-gold);
-  border: 3px solid var(--text-dark);
-  border-radius: 8px;
+  top: 10px;
+  right: 10px;
+  width: 35px;
+  height: 35px;
+  background: var(--gold);
+  border: 3px solid #000;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-pixel);
-  font-size: 1.2rem;
-  color: var(--text-dark);
-  box-shadow: 3px 3px 0 rgba(0,0,0,0.3);
+  font-family: var(--pixel);
+  font-size: 1rem;
   animation: float 3s ease-in-out infinite;
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0) rotate(-5deg); }
-  50% { transform: translateY(-5px) rotate(5deg); }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
 }
 
-/* Título de post */
-h1.f3.fw1.athelas a {
-  font-family: var(--font-pixel) !important;
-  font-size: 0.9rem !important;
+/* Post titles */
+article h1 a {
+  font-family: var(--pixel) !important;
+  font-size: 0.8rem !important;
   color: var(--mario-red) !important;
-  text-decoration: none !important;
-  line-height: 1.5 !important;
 }
 
-h1.f3.fw1.athelas a:hover {
-  color: var(--luigi-green) !important;
-  text-shadow: 2px 2px 0 rgba(0,0,0,0.2) !important;
-}
-
-/* Fecha del post */
-.gray.f6 {
-  font-family: var(--font-retro) !important;
-  color: var(--text-gray) !important;
-}
-
-/* Extracto del post */
-.lh-copy.f6 {
-  font-size: 1.1rem !important;
-  line-height: 1.6 !important;
-}
-
-/* Botón "Leer más" */
-a.ba.b--moon-gray.bg-light-gray {
+/* Read more button */
+a.ba.b--moon-gray {
   background: var(--luigi-green) !important;
   color: white !important;
-  border: 3px solid var(--text-dark) !important;
-  font-family: var(--font-pixel) !important;
-  font-size: 0.6rem !important;
+  font-family: var(--pixel) !important;
+  font-size: 0.55rem !important;
+  border: 3px solid #000 !important;
   border-radius: 20px !important;
-  padding: 10px 20px !important;
-  box-shadow: 4px 4px 0 var(--text-dark) !important;
-  transition: all 0.1s ease !important;
-  text-transform: uppercase !important;
+  box-shadow: 3px 3px 0 #000 !important;
 }
 
-a.ba.b--moon-gray.bg-light-gray:hover {
+a.ba.b--moon-gray:hover {
   transform: translate(2px, 2px) !important;
-  box-shadow: 2px 2px 0 var(--text-dark) !important;
+  box-shadow: 1px 1px 0 #000 !important;
   background: var(--mario-red) !important;
 }
 
-/* ========================================
-   CONTENIDO DE PÁGINA - Estilo general
-   ======================================== */
-
-.nested-copy-line-height {
-  font-size: 1.2rem !important;
-  line-height: 1.7 !important;
+/* Footer - Ground style */
+footer.bg-black {
+  background: var(--ground) !important;
+  border-top: 8px solid var(--luigi-green) !important;
 }
 
-.nested-copy-line-height
+/* Footer text */
+footer {
+  font-family: var(--pixel) !important;
+  font-size: 0.5rem !important;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  body { font-size: 16px !important; }
+  .tc-l .f2 { font-size: 1.2rem !important; }
+  nav a.hover-white { font-size: 0.5rem !important; padding: 8px 10px !important; }
+  article h1 a { font-size: 0.7rem !important; }
+}
+
+@media (max-width: 480px) {
+  body { font-size: 14px !important; }
+  .tc-l .f2 { font-size: 0.9rem !important; }
+  nav { flex-direction: column !important; }
+}
