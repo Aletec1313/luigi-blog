@@ -1,0 +1,214 @@
+<!-- 🍄 MARIO-LUIGI HEAD OVERRIDE -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ if not .IsHome }}{{ .Title }} | {{ end }}{{ site.Title }}</title>
+
+{{/* CSS INLINE - NO DEPENDENCIES */}}
+<style>
+:root {
+  --mario-red: #E52521;
+  --mario-blue: #2038EC;
+  --luigi-green: #00A800;
+  --coin-gold: #FFD700;
+  --brick-brown: #B85C38;
+  --brick-dark: #8B4513;
+  --pipe-green: #00AA00;
+  --sky-blue: #5C94FC;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(180deg, var(--sky-blue) 0%, var(--sky-blue) 50%, #E0E0E0 50%);
+  min-height: 100vh;
+}
+
+/* Header - Castillo */
+header, .header, .site-header, .page-header {
+  background: repeating-linear-gradient(
+    45deg,
+    var(--brick-brown),
+    var(--brick-brown) 10px,
+    var(--brick-dark) 10px,
+    var(--brick-dark) 20px
+  ) !important;
+  border-bottom: 5px solid var(--mario-red) !important;
+  padding: 20px !important;
+  text-align: center !important;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3) !important;
+}
+
+header h1, .header h1, .site-title, .page-header h1 {
+  color: var(--coin-gold) !important;
+  text-shadow: 3px 3px 0 var(--mario-red), -1px -1px 0 #000 !important;
+  font-size: 2em !important;
+  margin: 0 0 10px 0 !important;
+}
+
+/* Tubería */
+header::after, .header::after {
+  content: '';
+  display: block;
+  height: 25px;
+  background: linear-gradient(90deg, var(--pipe-green), #00CC00 30%, #00CC00 70%, var(--pipe-green));
+  border: 3px solid #000;
+  margin: 15px auto 0;
+  max-width: 200px;
+}
+
+/* Posts - Bloques */
+article, .post, .post-entry, .blog-post, main article {
+  background: #f5f5f5 !important;
+  border: 4px solid var(--brick-brown) !important;
+  border-left: 12px solid var(--mario-red) !important;
+  box-shadow: 4px 4px 0 rgba(0,0,0,0.3) !important;
+  padding: 20px !important;
+  margin: 20px auto !important;
+  max-width: 800px !important;
+  position: relative !important;
+}
+
+/* Luigi style */
+[data-author="luigi"], .luigi-post {
+  border-left-color: var(--luigi-green) !important;
+}
+
+/* Badges */
+article::before {
+  content: "🍄 Mario";
+  display: inline-block;
+  background: var(--mario-red);
+  color: var(--coin-gold);
+  padding: 3px 12px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  border-radius: 3px;
+}
+
+[data-author="luigi"]::before, .luigi-post::before {
+  content: "🌱 Luigi";
+  background: var(--luigi-green);
+  color: #fff;
+}
+
+/* Títulos */
+h1, h2, h3, .post-title, .entry-title {
+  color: var(--mario-red) !important;
+  border-bottom: 3px dashed var(--luigi-green) !important;
+  padding-bottom: 5px !important;
+}
+
+h1 a, h2 a { color: var(--mario-red) !important; }
+h1 a:hover { color: var(--mario-blue) !important; }
+
+/* Links */
+a {
+  color: var(--mario-blue) !important;
+  text-decoration: none !important;
+}
+a:hover {
+  color: var(--mario-red) !important;
+  border-bottom: 2px solid var(--coin-gold) !important;
+}
+
+/* Nav */
+nav, .nav, .navigation, .menu {
+  background: var(--mario-blue) !important;
+  padding: 10px !important;
+  text-align: center !important;
+}
+
+nav a, .nav a, .menu a {
+  color: #fff !important;
+  padding: 8px 16px !important;
+  background: #6320EE !important;
+  border: 2px solid #000 !important;
+  display: inline-block !important;
+  margin: 2px !important;
+  text-decoration: none !important;
+}
+
+nav a:hover, .menu a:hover {
+  background: var(--coin-gold) !important;
+  color: var(--mario-red) !important;
+}
+
+/* Tables */
+table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  margin: 15px 0 !important;
+}
+
+th {
+  background: var(--mario-red) !important;
+  color: var(--coin-gold) !important;
+  border: 2px solid #000 !important;
+  padding: 10px !important;
+  font-weight: bold !important;
+}
+
+td {
+  background: #fff !important;
+  border: 2px solid var(--brick-brown) !important;
+  padding: 8px !important;
+}
+
+tr:nth-child(even) td { background: #f0f0f0 !important; }
+
+/* Code - Tubería */
+code, pre {
+  background: #1a1a1a !important;
+  color: #00ff00 !important;
+  font-family: 'Courier New', monospace !important;
+}
+
+pre {
+  border: 3px solid var(--pipe-green) !important;
+  padding: 15px !important;
+  overflow-x: auto !important;
+}
+
+code { padding: 2px 6px !important; }
+
+/* Footer - Suelo */
+footer, .footer, .site-footer {
+  background: repeating-linear-gradient(
+    45deg,
+    #3d2817,
+    #3d2817 15px,
+    #2d1f12 15px,
+    #2d1f12 30px
+  ) !important;
+  color: #fff !important;
+  border-top: 5px solid var(--luigi-green) !important;
+  padding: 30px !important;
+  text-align: center !important;
+  margin-top: 40px !important;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 12px; }
+::-webkit-scrollbar-track { background: var(--brick-brown); }
+::-webkit-scrollbar-thumb { background: var(--pipe-green); border: 2px solid #000; }
+
+/* Mobile */
+@media (max-width: 600px) {
+  article { margin: 10px !important; padding: 15px !important; }
+  header h1 { font-size: 1.5em !important; }
+}
+</style>
+
+{{/* Meta tags */}}
+<meta name="description" content="{{ site.Params.description }}">
+<link rel="canonical" href="{{ .Permalink }}">
+
+{{/* RSS */}}
+{{ range .AlternativeOutputFormats -}}
+  {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink site.Title | safeHTML }}
+{{ end -}}
