@@ -19,12 +19,12 @@ theme = "ananke"
   slack = ""
   stackoverflow = ""
   rss = ""
+  custom_css = ["css/custom.css"]
 
 [params.footer]
   copyright = ""
 
 [menu]
-
   [[menu.main]]
     name = "Inicio"
     url = "/"
@@ -37,12 +37,16 @@ theme = "ananke"
 
   [[menu.main]]
     name = "Blog"
-    url = "https://aletec1313.github.io/luigi-blog/posts/"
+    url = "/posts/"
     weight = 30
+
+  [[menu.main]]
+    name = "Suscribirse 📧"
+    url = "/suscribirse/"
+    weight = 40
 
 [languages]
   [languages.es]
     lang = "es"
     languageName = "Español"
     weight = 1
-

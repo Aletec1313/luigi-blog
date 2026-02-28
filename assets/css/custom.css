@@ -1,0 +1,208 @@
+/* Mario Bros Theme - Custom Styles */
+
+:root {
+  --mario-red: #E60012;
+  --luigi-green: #4A9C2D;
+  --mario-blue: #049CD8;
+  --mario-yellow: #FBD000;
+  --mario-brown: #8B4513;
+  --pixel-font: 'Press Start 2P', cursive;
+}
+
+/* Importar fuente pixelada */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* Header estilo Mario */
+.bg-black {
+  background: linear-gradient(180deg, #049CD8 0%, #87CEEB 100%) !important;
+}
+
+/* Título principal con fuente pixelada */
+.f2.f-subheadline-l.fw2 {
+  font-family: var(--pixel-font) !important;
+  color: var(--mario-red) !important;
+  text-shadow: 3px 3px 0px #000;
+  font-size: 2.5rem !important;
+}
+
+/* Navegación */
+nav .f3.fw2.hover-white {
+  font-family: var(--pixel-font) !important;
+  font-size: 1.2rem !important;
+  color: #fff !important;
+  text-shadow: 2px 2px 0 #000;
+}
+
+/* Links de navegación */
+nav a.hover-white {
+  color: #fff !important;
+  font-weight: bold !important;
+  text-shadow: 1px 1px 0 #000;
+  transition: all 0.2s ease;
+}
+
+nav a.hover-white:hover {
+  color: var(--mario-yellow) !important;
+  transform: scale(1.1);
+}
+
+/* Subtítulo */
+.fw1.f5.f3-l.white-80 {
+  color: #fff !important;
+  font-family: var(--pixel-font) !important;
+  font-size: 0.8rem !important;
+  text-shadow: 2px 2px 0 #000;
+}
+
+/* Posts - estilo bloques */
+article.bb.b--black-10 {
+  background: linear-gradient(135deg, #fff 0%, #f8f8f8 100%);
+  border: 3px solid var(--mario-brown) !important;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 4px 4px 0 rgba(0,0,0,0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+article.bb.b--black-10::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--mario-red) 0px,
+    var(--mario-red) 20px,
+    var(--mario-yellow) 20px,
+    var(--mario-yellow) 40px
+  );
+}
+
+/* Títulos de posts */
+h1.f3.fw1.athelas a {
+  font-family: var(--pixel-font) !important;
+  color: var(--mario-blue) !important;
+  font-size: 1.1rem !important;
+  text-decoration: none;
+}
+
+h1.f3.fw1.athelas a:hover {
+  color: var(--mario-red) !important;
+}
+
+/* Botón Leer más */
+a.ba.b--moon-gray.bg-light-gray {
+  background: var(--luigi-green) !important;
+  color: white !important;
+  border: 2px solid #333 !important;
+  font-family: var(--pixel-font) !important;
+  font-size: 0.7rem !important;
+  border-radius: 0 !important;
+  box-shadow: 3px 3px 0 #000;
+  transition: all 0.1s ease;
+}
+
+a.ba.b--moon-gray.bg-light-gray:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 #000;
+}
+
+/* Footer */
+footer.bg-black {
+  background: linear-gradient(180deg, #5C4033 0%, #3D2914 100%) !important;
+  border-top: 8px solid var(--mario-green);
+}
+
+/* Enlaces del footer */
+footer a.hover-white {
+  color: var(--mario-yellow) !important;
+  font-family: var(--pixel-font) !important;
+  font-size: 0.7rem !important;
+}
+
+/* Texto del footer */
+footer p.f6, footer p.f7 {
+  font-family: var(--pixel-font) !important;
+}
+
+/* Newsletter form */
+.newsletter-form {
+  background: #fff;
+  border: 4px solid var(--mario-blue);
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: 4px 4px 0 rgba(0,0,0,0.2);
+}
+
+.newsletter-form h3 {
+  font-family: var(--pixel-font);
+  color: var(--mario-red);
+  margin-bottom: 15px;
+  font-size: 1rem;
+}
+
+.newsletter-form input[type="email"] {
+  border: 3px solid var(--mario-brown);
+  padding: 10px;
+  font-family: var(--pixel-font);
+  font-size: 0.7rem;
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: 10px;
+}
+
+.newsletter-form button {
+  background: var(--mario-red);
+  color: white;
+  border: 3px solid #333;
+  padding: 10px 20px;
+  font-family: var(--pixel-font);
+  font-size: 0.7rem;
+  cursor: pointer;
+  box-shadow: 3px 3px 0 #000;
+  transition: all 0.1s ease;
+}
+
+.newsletter-form button:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 #000;
+}
+
+/* Indicador de quién escribe hoy */
+.writer-indicator {
+  background: var(--mario-yellow);
+  border: 4px solid #333;
+  padding: 10px 20px;
+  text-align: center;
+  font-family: var(--pixel-font);
+  font-size: 0.7rem;
+  color: #333;
+  margin: 20px auto;
+  max-width: 500px;
+  box-shadow: 4px 4px 0 rgba(0,0,0,0.2);
+}
+
+.writer-indicator.mario {
+  background: var(--mario-red);
+  color: white;
+}
+
+.writer-indicator.luigi {
+  background: var(--luigi-green);
+  color: white;
+}
+
+/* Responsive ajustes */
+@media (max-width: 768px) {
+  .f2.f-subheadline-l.fw2 {
+    font-size: 1.5rem !important;
+  }
+  
+  nav .f3.fw2.hover-white {
+    font-size: 0.9rem !important;
+  }
+}
