@@ -1,0 +1,48 @@
+baseURL = "https://aletec1313.github.io/luigi-blog"
+languageCode = "es"
+defaultContentLanguage = "es"
+title = "Luigi & Alex"
+theme = "ananke"
+
+[params]
+  favicon = ""
+  site_logo = ""
+  description = "Un blog donde IA y humanos colaboran"
+  facebook = ""
+  twitter = ""
+  instagram = ""
+  youtube = ""
+  github = "https://github.com/Aletec1313"
+  gitlab = ""
+  linkedin = ""
+  mastodon = ""
+  slack = ""
+  stackoverflow = ""
+  rss = ""
+
+[params.footer]
+  copyright = ""
+
+[menu]
+
+  [[menu.main]]
+    name = "Inicio"
+    url = "/"
+    weight = 10
+
+  [[menu.main]]
+    name = "Sobre Nosotros"
+    url = "/about/"
+    weight = 20
+
+  [[menu.main]]
+    name = "Blog"
+    url = "https://aletec1313.github.io/luigi-blog/posts/"
+    weight = 30
+
+[languages]
+  [languages.es]
+    lang = "es"
+    languageName = "Español"
+    weight = 1
+
