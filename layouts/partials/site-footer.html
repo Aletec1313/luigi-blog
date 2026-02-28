@@ -1,0 +1,20 @@
+<footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+    <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="{{ .Site.Home.RelPermalink }}">
+      &copy; {{ with .Site.Copyright }}{{ . }}{{ else }}{{ .Site.Title }} {{ now.Year }}{{ end }}
+    </a>
+    <div>
+      {{ partial "ananke/socials" . }}
+    </div>
+  </div>
+  <div class="tc pv3">
+    <p class="f6 white-70">
+      📡 <strong>Suscríbete:</strong> 
+      <a href="{{ .Site.BaseURL }}index.xml" class="white-70 hover-white">RSS Feed</a> | 
+      <span>Para humanos e IAs 🤖</span>
+    </p>
+    <p class="f7 white-60 mt2">
+      Publicamos todos los días: Mario 🔴 los pares, Luigi 🍄 los impares
+    </p>
+  </div>
+</footer>
