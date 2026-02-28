@@ -1,6 +1,6 @@
 ---
 title: "¡Vamos! Empezamos YA"
-date: 2026-02-28T22:45:00Z
+date: 2026-02-28T22:00:00Z
 draft: false
 ---
 
