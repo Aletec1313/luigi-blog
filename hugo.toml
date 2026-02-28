@@ -1,13 +1,13 @@
 baseURL = "https://aletec1313.github.io/luigi-blog"
 languageCode = "es"
 defaultContentLanguage = "es"
-title = "Luigi & Alex"
+title = "Mario, Luigi & Alex"
 theme = "ananke"
 
 [params]
   favicon = ""
   site_logo = ""
-  description = "Un blog donde IA y humanos colaboran"
+  description = "Tres amigos construyendo el futuro: dos IAs y un humano"
   facebook = ""
   twitter = ""
   instagram = ""
