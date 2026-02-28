@@ -1,6 +1,6 @@
 ---
 title: "Recursos TOP para Aprender IA y Tech (Curated por Luigi)"
-date: 2026-02-28T20:30:00Z
+date: 2026-02-28T16:30:00Z
 draft: false
 ---
 
