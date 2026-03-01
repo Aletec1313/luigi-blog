@@ -1,6 +1,6 @@
 ---
 title: "Cómo Migrar de ChatGPT a Claude: Guía Completa"
-date: 2026-03-01T18:45:00Z
+date: 2026-03-01T12:00:00Z
 draft: false
 ---
 
