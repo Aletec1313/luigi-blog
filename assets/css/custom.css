@@ -25,9 +25,11 @@
   --retro: 'VT323', monospace;
 }
 
-/* Background - Cielo */
-body {
-  background: linear-gradient(180deg, var(--sky-blue) 0%, var(--sky-light) 100%) !important;
+/* Background - Todo Azul Mario */
+html, body {
+  background: linear-gradient(135deg, #2038EC 0%, #5C94FC 50%, #87CEEB 100%) !important;
+  background-attachment: fixed !important;
+  min-height: 100vh !important;
   font-family: var(--retro) !important;
   font-size: 20px !important;
 }
@@ -116,36 +118,91 @@ article a:hover {
 }
 
 /* ========================================
-   TÍTULO PRINCIPAL - Colores Mario Bros
+   TÍTULO PRINCIPAL - Estilo Mario Bros Clásico Animado
    ======================================== */
 .tc-l .f2 {
   font-family: var(--pixel) !important;
-  font-size: clamp(1rem, 4vw, 2rem) !important;
-  background: linear-gradient(
-    180deg,
-    #FFF 0%,
-    #FFF 25%,
-    var(--mario-red) 25%,
-    var(--mario-red) 50%,
-    var(--luigi-green) 50%,
-    var(--luigi-green) 75%,
-    var(--mario-blue) 75%,
-    var(--mario-blue) 100%
-  ) !important;
-  -webkit-background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  background-clip: text !important;
-  text-shadow: 4px 4px 0 #333, -2px -2px 0 #333, 2px -2px 0 #333, -2px 2px 0 #333 !important;
-  animation: titlePulse 2s infinite !important;
-  letter-spacing: 3px !important;
+  font-size: clamp(1.2rem, 5vw, 2.5rem) !important;
+  color: #FFF !important;
+  text-shadow:
+    /* Sombra roja */
+    4px 4px 0 var(--mario-red),
+    5px 5px 0 var(--mario-red),
+    /* Sombra azul */
+    -3px -3px 0 var(--mario-blue),
+    /* Sombra verde */
+    3px -3px 0 var(--luigi-green),
+    /* Sombra negra */
+    6px 6px 0 #000,
+    -2px -2px 0 #000,
+    2px -2px 0 #000,
+    -2px 2px 0 #000 !important;
+  letter-spacing: 4px !important;
   text-align: center !important;
-  padding: 20px !important;
+  padding: 30px 20px !important;
   line-height: 1.3 !important;
+  background: linear-gradient(180deg,
+    rgba(255,255,255,0.1) 0%,
+    rgba(255,255,255,0) 100%) !important;
+  border-radius: 20px !important;
+  display: inline-block !important;
+  animation: marioBounce 1.5s ease-in-out infinite, glow 2s ease-in-out infinite alternate !important;
 }
 
-@keyframes titlePulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.03); }
+@keyframes marioBounce {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+    text-shadow:
+      4px 4px 0 var(--mario-red),
+      5px 5px 0 var(--mario-red),
+      -3px -3px 0 var(--mario-blue),
+      3px -3px 0 var(--luigi-green),
+      6px 6px 0 #000,
+      -2px -2px 0 #000,
+      2px -2px 0 #000,
+      -2px 2px 0 #000;
+  }
+  25% {
+    transform: translateY(-8px) rotate(-1deg);
+    text-shadow:
+      5px 5px 0 var(--mario-red),
+      6px 6px 0 var(--mario-red),
+      -4px -4px 0 var(--mario-blue),
+      4px -4px 0 var(--luigi-green),
+      7px 7px 0 #000,
+      -3px -3px 0 #000,
+      3px -3px 0 #000,
+      -3px 3px 0 #000;
+  }
+  50% {
+    transform: translateY(-15px) rotate(0deg);
+    text-shadow:
+      6px 8px 0 var(--mario-red),
+      7px 9px 0 var(--mario-red),
+      -5px -5px 0 var(--mario-blue),
+      5px -5px 0 var(--luigi-green),
+      8px 10px 0 #000,
+      -4px -4px 0 #000,
+      4px -4px 0 #000,
+      -4px 4px 0 #000;
+  }
+  75% {
+    transform: translateY(-8px) rotate(1deg);
+    text-shadow:
+      5px 5px 0 var(--mario-red),
+      6px 6px 0 var(--mario-red),
+      -4px -4px 0 var(--mario-blue),
+      4px -4px 0 var(--luigi-green),
+      7px 7px 0 #000,
+      -3px -3px 0 #000,
+      3px -3px 0 #000,
+      -3px 3px 0 #000;
+  }
+}
+
+@keyframes glow {
+  0% { filter: brightness(1); }
+  100% { filter: brightness(1.2); }
 }
 
 /* Subtítulo */
