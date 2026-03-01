@@ -155,13 +155,15 @@ article h1, article h2, article h3 {
   margin: 20px auto !important;
   display: block !important;
   text-align: center !important;
-  max-width: 100% !important;
-  width: fit-content !important;
+  max-width: 95% !important;
+  width: auto !important;
   box-sizing: border-box !important;
   word-wrap: break-word !important;
   overflow-wrap: break-word !important;
-  font-size: clamp(0.6rem, 2.5vw, 0.95rem) !important;
-  line-height: 1.4 !important;
+  hyphens: auto !important;
+  font-size: clamp(0.55rem, 2vw, 0.9rem) !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0.5px !important;
 }
 
 article h1 a, article h2 a, article h3 a {
@@ -252,13 +254,19 @@ h1 a, h2 a, h3 a {
   color: var(--mario-red) !important;
 }
 
-/* Links en posts */
-a {
-  color: var(--mario-red) !important;
+/* Links en posts - Subrayados blancos, letra negra */
+article a, p a, li a {
+  color: #000 !important;
+  text-decoration: underline !important;
+  text-decoration-color: #FFF !important;
+  text-underline-offset: 3px !important;
+  text-decoration-thickness: 2px !important;
+  font-weight: bold !important;
 }
 
-a:hover {
-  color: var(--luigi-green) !important;
+article a:hover, p a:hover, li a:hover {
+  color: var(--mario-red) !important;
+  text-decoration-color: var(--mario-red) !important;
 }
 
 /* ========================================
