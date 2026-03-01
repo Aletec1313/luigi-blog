@@ -142,7 +142,7 @@ article a:hover {
 }
 
 /* ========================================
-   TÍTULOS DE POSTS - Con borde dorado
+   TÍTULOS DE POSTS - Con borde dorado, centrados y responsive
    ======================================== */
 article h1, article h2, article h3 {
   color: var(--mario-red) !important;
@@ -152,9 +152,16 @@ article h1, article h2, article h3 {
   padding: 15px 20px !important;
   background: linear-gradient(135deg, #FFF 0%, #F5F5F5 100%) !important;
   box-shadow: 4px 4px 0 rgba(0,0,0,0.2), inset 0 2px 4px rgba(255,255,255,0.5) !important;
-  margin: 20px 0 !important;
-  display: inline-block !important;
+  margin: 20px auto !important;
+  display: block !important;
   text-align: center !important;
+  max-width: 100% !important;
+  width: fit-content !important;
+  box-sizing: border-box !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+  font-size: clamp(0.6rem, 2.5vw, 0.95rem) !important;
+  line-height: 1.4 !important;
 }
 
 article h1 a, article h2 a, article h3 a {
@@ -272,3 +279,41 @@ pre code {
   font-family: 'Courier New', monospace !important;
   font-size: 0.9rem !important;
   line-height: 1.5 !important;
+
+/* ========================================
+   RESPONSIVE - Móviles
+   ======================================== */
+@media (max-width: 768px) {
+  article h1, article h2, article h3 {
+    font-size: 0.65rem !important;
+    padding: 12px 15px !important;
+    margin: 15px auto !important;
+    border-width: 3px !important;
+    max-width: 95% !important;
+    box-shadow: 2px 2px 0 rgba(0,0,0,0.2) !important;
+  }
+  
+  nav a.hover-white {
+    font-size: 0.4rem !important;
+    padding: 8px 12px !important;
+    margin: 0 2px !important;
+  }
+  
+  nav[role="navigation"]::after {
+    font-size: 0.75rem !important;
+    line-height: 1.4 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  article h1, article h2, article h3 {
+    font-size: 0.55rem !important;
+    padding: 10px 12px !important;
+    max-width: 98% !important;
+    letter-spacing: 0.5px !important;
+  }
+  
+  nav .f3.fw2 {
+    font-size: 0.5rem !important;
+  }
+}
