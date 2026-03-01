@@ -1,5 +1,5 @@
 /* ========================================
-   MARIO BROS THEME - Full Version
+   MARIO BROS THEME - Enhanced
    ======================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
@@ -7,421 +7,282 @@
 :root {
   --mario-red: #E60012;
   --mario-dark: #B3000E;
+  --mario-blue: #049CD8;
+  --mario-skin: #F9C29A;
   --luigi-green: #4A9C2D;
   --luigi-dark: #3A7A23;
   --sky-blue: #5C94FC;
   --sky-light: #87CEEB;
   --ground: #8B4513;
+  --ground-light: #A0522D;
   --brick: #E86A17;
+  --brick-light: #F4853C;
   --gold: #F8B800;
   --coin: #FFD700;
-  --pipe: #00AA00;
+  --pipe-green: #00AA00;
   --dark: #1a1a2e;
   --pixel: 'Press Start 2P', cursive;
   --retro: 'VT323', monospace;
 }
 
-/* Background */
+/* Background - Cielo */
 body {
   background: linear-gradient(180deg, var(--sky-blue) 0%, var(--sky-light) 100%) !important;
   font-family: var(--retro) !important;
   font-size: 20px !important;
 }
 
-/* Header */
+/* ========================================
+   HEADER - Estilo Mundo 1-1
+   ======================================== */
 .bg-black {
-  background: linear-gradient(180deg, var(--sky-blue) 0%, var(--sky-light) 100%) !important;
+  background: linear-gradient(180deg, var(--sky-blue) 0%, var(--sky-light) 70%, var(--ground-light) 100%) !important;
   border-bottom: 8px solid var(--ground) !important;
-}
-
-/* Logo */
-nav .f3.fw2 {
-  font-family: var(--pixel) !important;
-  font-size: 0.9rem !important;
-  color: white !important;
-  text-shadow: 3px 3px 0 var(--mario-red), -1px -1px 0 #000 !important;
-}
-
-/* Nav links - Pipe style */
-nav a.hover-white {
-  font-family: var(--pixel) !important;
-  font-size: 0.6rem !important;
-  background: var(--pipe) !important;
-  color: white !important;
-  padding: 10px 15px !important;
-  border: 3px solid #006600 !important;
-  border-radius: 8px 8px 0 0 !important;
-  box-shadow: 0 -4px 0 #006600 inset !important;
-}
-
-nav a.hover-white:hover {
-  background: var(--luigi-green) !important;
-  transform: translateY(-3px) !important;
-}
-
-/* Main title */
-.tc-l .f2 {
-  font-family: var(--pixel) !important;
-  font-size: 1.8rem !important;
-  color: var(--mario-red) !important;
-  text-shadow: 4px 4px 0 #fff, -2px -2px 0 #000, 4px 4px 0 #000 !important;
-  animation: bounce 2s infinite;
-}
-
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-/* Posts - Brick blocks */
-article.bb {
-  background: #fff !important;
-  border: 4px solid var(--brick) !important;
-  border-radius: 4px !important;
-  box-shadow: 4px 4px 0 rgba(0,0,0,0.2) !important;
   position: relative !important;
-}
-
-/* Question block */
-article.bb::before {
-  content: '?';
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  width: 35px;
-  height: 35px;
-  background: var(--gold);
-  border: 3px solid #000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--pixel);
-  font-size: 1rem;
-  animation: float 3s ease-in-out infinite;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
-}
-
-/* Post titles */
-article h1 a {
-  font-family: var(--pixel) !important;
-  font-size: 0.8rem !important;
-  color: var(--mario-red) !important;
-}
-
-/* Read more button */
-a.ba.b--moon-gray {
-  background: var(--luigi-green) !important;
-  color: white !important;
-  font-family: var(--pixel) !important;
-  font-size: 0.55rem !important;
-  border: 3px solid #000 !important;
-  border-radius: 20px !important;
-  box-shadow: 3px 3px 0 #000 !important;
-}
-
-a.ba.b--moon-gray:hover {
-  transform: translate(2px, 2px) !important;
-  box-shadow: 1px 1px 0 #000 !important;
-  background: var(--mario-red) !important;
-}
-
-/* Footer - Ground style */
-footer.bg-black {
-  background: var(--ground) !important;
-  border-top: 8px solid var(--luigi-green) !important;
-}
-
-/* Footer text */
-footer {
-  font-family: var(--pixel) !important;
-  font-size: 0.5rem !important;
-}
-
-/* Mobile responsive */
-@media (max-width: 768px) {
-  body { font-size: 16px !important; }
-  .tc-l .f2 { font-size: 1.2rem !important; }
-  nav a.hover-white { font-size: 0.5rem !important; padding: 8px 10px !important; }
-  article h1 a { font-size: 0.7rem !important; }
-}
-
-@media (max-width: 480px) {
-  body { font-size: 14px !important; }
-  .tc-l .f2 { font-size: 0.9rem !important; }
-  nav { flex-direction: column !important; }
-}
-/* =========================================
-   MARIO & LUIGI 2D ANIMATED THEME
-   ========================================= */
-
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
-
-:root {
-  --mario-red: #E52521;
-  --mario-blue: #2038EC;
-  --mario-skin: #F9C29A;
-  --mario-brown: #8B4513;
-  
-  --luigi-green: #00A800;
-  --luigi-dark: #006600;
-  
-  --coin-gold: #FFD700;
-  --sky-blue: #5C94FC;
-  --sky-light: #87CEEB;
-  --ground: #8B4513;
-  --brick: #E86A17;
-}
-
-/* Base */
-body {
-  font-family: 'VT323', monospace !important;
-  font-size: 20px !important;
-  background: linear-gradient(180deg, var(--sky-blue) 0%, var(--sky-light) 100%) !important;
-  min-height: 100vh;
-}
-
-/* =========================================
-   NAVIGATION - Mejorado
-   ========================================= */
-nav[role="navigation"] {
-  background: linear-gradient(180deg, var(--mario-red) 0%, #8B0000 100%) !important;
-  border: 4px solid #333 !important;
-  border-radius: 8px !important;
-  padding: 15px !important;
-  box-shadow: 0 8px 0 #333, 0 12px 20px rgba(0,0,0,0.5) !important;
-  position: relative !important;
-  margin: 20px !important;
-}
-
-/* Logo container con Mario y Luigi */
-nav .flex-l > a {
-  font-family: 'Press Start 2P', cursive !important;
-  font-size: 0.7rem !important;
-  color: white !important;
-  text-shadow: 3px 3px 0 #000 !important;
-  position: relative !important;
-  padding-left: 80px !important;
-}
-
-/* Pixel Mario icon */
-nav .flex-l > a::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 60px;
-  height: 60px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23E52521' d='M5 2h6v2H5z'/%3E%3Cpath fill='%23E52521' d='M4 4h8v1H4z'/%3E%3Cpath fill='%23F9C29A' d='M4 5h1v2H4z'/%3E%3Cpath fill='%23F9C29A' d='M11 5h1v2h-1z'/%3E%3Cpath fill='%23F9C29A' d='M5 6h6v4H5z'/%3E%3Cpath fill='%23E52521' d='M4 10h8v2H4z'/%3E%3Cpath fill='%23333' d='M5 12h2v2H5z'/%3E%3Cpath fill='%23333' d='M9 12h2v2H9z'/%3E%3C/svg%3E");
-  background-size: contain;
-  background-repeat: no-repeat;
-  animation: bounce 1s infinite alternate;
-}
-
-@keyframes bounce {
-  from { transform: translateY(-50%) translateY(0); }
-  to { transform: translateY(-50%) translateY(-3px); }
-}
-
-/* Menu items - Estilo coins */
-nav ul li a {
-  font-family: 'Press Start 2P', cursive !important;
-  font-size: 0.55rem !important;
-  background: var(--coin-gold) !important;
-  color: #333 !important;
-  padding: 10px 15px !important;
-  border: 3px solid #333 !important;
-  border-radius: 50% !important;
-  box-shadow: 0 4px 0 #333 !important;
-  display: inline-block !important;
-  margin: 0 5px !important;
-  transition: all 0.1s !important;
-}
-
-nav ul li a:hover {
-  transform: translateY(2px) !important;
-  box-shadow: 0 2px 0 #333 !important;
-  background: #FFD900 !important;
-}
-
-/* =========================================
-   HEADER - Con Mario y Luigi animados
-   ========================================= */
-header.bg-black {
-  background: linear-gradient(180deg, var(--sky-blue) 0%, var(--sky-blue) 60%, var(--ground) 100%) !important;
-  border-bottom: none !important;
-  position: relative !important;
-  min-height: 300px !important;
   overflow: hidden !important;
 }
 
-/* Ground texture */
-header::after {
+/* Patrón de nubes */
+.bg-black::before {
   content: '';
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 40px;
-  background: 
-    linear-gradient(180deg, var(--ground) 0%, #5D2E0C 100%),
-    repeating-linear-gradient(
-      90deg,
-      transparent 0px, transparent 20px,
-      rgba(0,0,0,0.1) 20px, rgba(0,0,0,0.1) 22px
-    );
+  top: 20px;
+  left: 10%;
+  width: 60px;
+  height: 30px;
+  background: white;
+  border-radius: 30px;
+  opacity: 0.8;
+  box-shadow: 
+    40px -10px 0 -5px white,
+    70px 5px 0 -10px white,
+    200px 40px 0 0 white,
+    250px 20px 0 -5px white;
 }
 
-/* Title animation */
-header h1 {
-  font-family: 'Press Start 2P', cursive !important;
-  font-size: 1.8rem !important;
-  background: linear-gradient(180deg, #FFF 0%, var(--coin-gold) 100%) !important;
+/* ========================================
+   NAVIGATION - Estilo Mejorado
+   ======================================== */
+nav[role="navigation"] {
+  background: linear-gradient(180deg, #2C2C2C 0%, #1a1a1a 100%) !important;
+  border-bottom: 4px solid var(--pipe-green) !important;
+  padding: 15px 20px !important;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3) !important;
+}
+
+/* Quitar muñeco del logo */
+nav .f3.fw2 {
+  font-family: var(--pixel) !important;
+  font-size: 0.7rem !important;
+  color: var(--mario-red) !important;
+  text-shadow: 
+    3px 3px 0 #fff,
+    -2px -2px 0 #fff,
+    2px -2px 0 #fff,
+    -2px 2px 0 #fff,
+    4px 4px 0 #000 !important;
+  letter-spacing: 2px !important;
+}
+
+/* Links del menú - Estilo moneda dorada */
+nav a.hover-white {
+  font-family: var(--pixel) !important;
+  font-size: 0.55rem !important;
+  background: linear-gradient(180deg, var(--gold) 0%, #E6A800 100%) !important;
+  color: #333 !important;
+  padding: 12px 18px !important;
+  border: 3px solid #333 !important;
+  border-radius: 50% !important;
+  box-shadow: 0 4px 0 #333, 0 6px 10px rgba(0,0,0,0.3) !important;
+  display: inline-block !important;
+  margin: 0 5px !important;
+  transition: all 0.15s ease !important;
+  text-shadow: none !important;
+}
+
+nav a.hover-white:hover {
+  transform: translateY(2px) scale(1.05) !important;
+  box-shadow: 0 2px 0 #333, 0 4px 6px rgba(0,0,0,0.3) !important;
+  background: linear-gradient(180deg, var(--coin) 0%, var(--gold) 100%) !important;
+}
+
+/* ========================================
+   TÍTULO PRINCIPAL - Colores Mario Bros
+   ======================================== */
+.tc-l .f2 {
+  font-family: var(--pixel) !important;
+  font-size: clamp(1rem, 4vw, 2rem) !important;
+  background: linear-gradient(
+    180deg,
+    #FFF 0%,
+    #FFF 25%,
+    var(--mario-red) 25%,
+    var(--mario-red) 50%,
+    var(--luigi-green) 50%,
+    var(--luigi-green) 75%,
+    var(--mario-blue) 75%,
+    var(--mario-blue) 100%
+  ) !important;
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
-  text-shadow: 4px 4px 0 #000 !important;
-  animation: titleBounce 2s infinite !important;
+  background-clip: text !important;
+  text-shadow: 
+    4px 4px 0 #333,
+    -2px -2px 0 #333,
+    2px -2px 0 #333,
+    -2px 2px 0 #333 !important;
+  animation: titlePulse 2s infinite !important;
+  letter-spacing: 3px !important;
+  text-align: center !important;
+  padding: 20px !important;
+  line-height: 1.3 !important;
 }
 
-@keyframes titleBounce {
-  0%, 100% { transform: translateY(0) scale(1); }
-  50% { transform: translateY(-10px) scale(1.05); }
+@keyframes titlePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
 }
 
-header h2 {
-  font-family: 'VT323', monospace !important;
-  font-size: 1.5rem !important;
-  color: white !important;
+/* Subtítulo */
+.fw1.f5.f3-l.white-80 {
+  font-family: var(--retro) !important;
+  font-size: 1.4rem !important;
+  color: #FFF !important;
+  text-shadow: 
+    2px 2px 0 #333,
+    -1px -1px 0 #333 !important;
+  background: rgba(0,0,0,0.3) !important;
+  padding: 10px 20px !important;
+  border-radius: 20px !important;
+  display: inline-block !important;
+}
+
+/* ========================================
+   CONTADOR DE POSTS Y VISITAS
+   ======================================== */
+.counter-container {
+  position: absolute !important;
+  right: 20px !important;
+  top: 80px !important;
+  display: flex !important;
+  gap: 15px !important;
+  z-index: 100 !important;
+}
+
+.counter-box {
+  background: linear-gradient(180deg, #2C2C2C 0%, #1a1a1a 100%) !important;
+  border: 4px solid var(--gold) !important;
+  border-radius: 8px !important;
+  padding: 10px 20px !important;
+  box-shadow: 
+    0 4px 0 #333,
+    0 8px 15px rgba(0,0,0,0.4) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  min-width: 120px !important;
+}
+
+.counter-box span:first-child {
+  font-family: var(--pixel) !important;
+  font-size: 0.5rem !important;
+  color: var(--gold) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+}
+
+.counter-box span:last-child {
+  font-family: var(--pixel) !important;
+  font-size: 1rem !important;
+  color: #FFF !important;
   text-shadow: 2px 2px 0 #000 !important;
 }
 
-/* =========================================
-   MAIN CONTENT - Cards mejoradas
-   ========================================= */
-main {
-  padding: 20px;
+.counter-icon {
+  font-size: 1.5rem !important;
+  margin-bottom: 5px !important;
 }
 
-/* Blog posts como bloques de juego */
-article {
-  background: linear-gradient(135deg, #FFF 0%, #F0F0F0 100%) !important;
+/* ========================================
+   POSTS - Estilo Bloques de Juego
+   ======================================== */
+article.bb {
+  background: linear-gradient(135deg, #FFF 0%, #F5F5F5 100%) !important;
   border: 4px solid var(--brick) !important;
   border-radius: 8px !important;
-  padding: 30px !important;
-  margin-bottom: 30px !important;
   box-shadow: 
     6px 6px 0 rgba(0,0,0,0.2),
     inset -4px -4px 0 rgba(0,0,0,0.1) !important;
   position: relative !important;
   overflow: hidden !important;
+  margin-bottom: 30px !important;
 }
 
-/* Question block decoration */
-article::before {
+/* Pattern de ladrillos */
+article.bb::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--brick) 0px,
+    var(--brick) 30px,
+    #333 30px,
+    #333 32px
+  );
+}
+
+/* Bloque de interrogación flotante */
+article.bb::after {
   content: '?';
   position: absolute;
-  top: 20px;
-  right: 20px;
-  width: 50px;
-  height: 50px;
-  background: var(--coin-gold);
-  border: 4px solid #333;
+  top: 15px;
+  right: 15px;
+  width: 45px;
+  height: 45px;
+  background: linear-gradient(180deg, var(--gold) 0%, #E6A800 100%);
+  border: 3px solid #333;
   border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Press Start 2P', cursive;
-  font-size: 1.5rem;
+  font-family: var(--pixel);
+  font-size: 1.3rem;
   color: #333;
-  box-shadow: 4px 4px 0 rgba(0,0,0,0.3);
-  animation: floatBlock 3s ease-in-out infinite;
+  box-shadow: 3px 3px 0 rgba(0,0,0,0.3);
+  animation: floatBlock 2.5s ease-in-out infinite;
 }
 
 @keyframes floatBlock {
-  0%, 100% { transform: translateY(0) rotate(-2deg); }
-  50% { transform: translateY(-8px) rotate(2deg); }
+  0%, 100% { transform: translateY(0) rotate(-3deg); }
+  50% { transform: translateY(-8px) rotate(3deg); }
 }
 
-/* Post titles */
-article h1, article h2 {
-  font-family: 'Press Start 2P', cursive !important;
+/* Títulos de posts */
+h1.f3.fw1.athelas a {
+  font-family: var(--pixel) !important;
+  font-size: 0.75rem !important;
   color: var(--mario-red) !important;
+  line-height: 1.5 !important;
+  text-decoration: none !important;
+  display: block !important;
+  margin-top: 15px !important;
+}
+
+h1.f3.fw1.athelas a:hover {
+  color: var(--luigi-green) !important;
   text-shadow: 2px 2px 0 rgba(0,0,0,0.2) !important;
-  margin-bottom: 15px !important;
-  line-height: 1.4 !important;
 }
 
-/* Improved typography */
-article p, article li {
-  font-size: 1.1rem !important;
-  line-height: 1.6 !important;
-  color: #333 !important;
-}
-
-/* Tables estilo retro */
-article table {
-  border: 3px solid #333 !important;
-  background: white !important;
-  box-shadow: 4px 4px 0 rgba(0,0,0,0.2) !important;
-  margin: 20px 0 !important;
-}
-
-article table th {
-  background: var(--mario-red) !important;
-  color: white !important;
-  font-family: 'Press Start 2P', cursive !important;
-  font-size: 0.5rem !important;
-  padding: 10px !important;
-}
-
-article table td {
-  border: 2px solid #DDD !important;
-  padding: 10px !important;
-}
-
-/* Code blocks */
-article pre {
-  background: #1a1a2e !important;
-  border: 3px solid #333 !important;
-  border-radius: 8px !important;
-  box-shadow: inset 0 0 20px rgba(0,0,0,0.5) !important;
-  padding: 15px !important;
-  overflow-x: auto !important;
-}
-
-article code {
-  font-family: 'Courier New', monospace !important;
-  color: #00FF00 !important;
-}
-
-/* Buttons */
-article a[href^="/"], article a.btn, a.read-more {
+/* Botón Leer más */
+a.ba.b--moon-gray.bg-light-gray {
   background: linear-gradient(180deg, var(--luigi-green) 0%, var(--luigi-dark) 100%) !important;
   color: white !important;
-  font-family: 'Press Start 2P', cursive !important;
-  font-size: 0.6rem !important;
-  padding: 12px 20px !important;
+  font-family: var(--pixel) !important;
+  font-size: 0.55rem !important;
   border: 3px solid #333 !important;
   border-radius: 20px !important;
-  box-shadow: 0 4px 0 #333 !important;
-  display: inline-block !important;
-  margin-top: 15px !important;
-  transition: all 0.1s !important;
-}
-
-article a[href^="/"]:hover, article a.btn:hover, a.read-more:hover {
-  transform: translateY(2px) !important;
-  box-shadow: 0 2px 0 #333 !important;
-  background: var(--mario-red) !important;
-}
-
-/* =========================================
-   FOOTER - Mejorado
-   ========================================= */
-footer {
-  background: linear-gradient(180deg, var(--ground) 0%, #5D2E0C 100%) !important;
-  border-top: 8px solid var(--lu
+  box-shadow: 3px 3px
