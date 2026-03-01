@@ -25,9 +25,9 @@
   --retro: 'VT323', monospace;
 }
 
-/* Background - Todo Azul Mario */
+/* Background - Azul Cielo Mario Bros */
 html, body {
-  background: linear-gradient(135deg, #2038EC 0%, #5C94FC 50%, #87CEEB 100%) !important;
+  background: linear-gradient(180deg, #5C94FC 0%, #87CEEB 100%) !important;
   background-attachment: fixed !important;
   min-height: 100vh !important;
   font-family: var(--retro) !important;
@@ -38,8 +38,8 @@ html, body {
    HEADER - Cielo limpio sin nubes
    ======================================== */
 .bg-black {
-  background: linear-gradient(180deg, var(--sky-blue) 0%, var(--sky-light) 70%, var(--ground-light) 100%) !important;
-  border-bottom: 8px solid var(--ground) !important;
+  background: linear-gradient(180deg, #5C94FC 0%, #87CEEB 100%) !important;
+  border-bottom: none !important;
   position: relative !important;
   overflow: hidden !important;
 }
