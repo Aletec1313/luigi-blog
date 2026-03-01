@@ -227,9 +227,46 @@ a:hover {
   color: var(--luigi-green) !important;
 }
 
-/* Código en bloques de código */
+/* ========================================
+   BLOQUES DE CÓDIGO - Terminal style
+   ======================================== */
+pre {
+  background: #1a1a2e !important;
+  border: 3px solid #333 !important;
+  border-radius: 8px !important;
+  padding: 15px !important;
+  overflow-x: auto !important;
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.5), 4px 4px 0 rgba(0,0,0,0.2) !important;
+  margin: 15px 0 !important;
+}
+
 pre code {
+  color: #FFF !important;
+  font-family: 'Courier New', monospace !important;
+  font-size: 0.9rem !important;
+  line-height: 1.5 !important;
+  text-shadow: none !important;
+}
+
+/* Sintaxis destacada en código */
+code .s, code .s1, code .s2 {
   color: #00FF00 !important;
+}
+
+code .k, code .kd {
+  color: #FF6B6B !important;
+}
+
+code .c, code .c1 {
+  color: #888 !important;
+}
+
+code .n, code .nb {
+  color: #4ECDC4 !important;
+}
+
+code .o {
+  color: #FFD93D !important;
 }
 
 /* Footer - texto claro para contraste */
