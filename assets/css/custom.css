@@ -1,5 +1,5 @@
 /* ========================================
-   MARIO BROS THEME - Enhanced
+   MARIO BROS THEME - Enhanced (Sin Nubes)
    ======================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
@@ -33,7 +33,7 @@ body {
 }
 
 /* ========================================
-   HEADER - Estilo Mundo 1-1
+   HEADER - Cielo limpio sin nubes
    ======================================== */
 .bg-black {
   background: linear-gradient(180deg, var(--sky-blue) 0%, var(--sky-light) 70%, var(--ground-light) 100%) !important;
@@ -42,26 +42,10 @@ body {
   overflow: hidden !important;
 }
 
-/* Patrón de nubes */
-.bg-black::before {
-  content: '';
-  position: absolute;
-  top: 20px;
-  left: 10%;
-  width: 60px;
-  height: 30px;
-  background: white;
-  border-radius: 30px;
-  opacity: 0.8;
-  box-shadow: 
-    40px -10px 0 -5px white,
-    70px 5px 0 -10px white,
-    200px 40px 0 0 white,
-    250px 20px 0 -5px white;
-}
+/* Sin nubes */
 
 /* ========================================
-   NAVIGATION - Estilo Mejorado
+   NAVIGATION - Estilo Tubería Mario
    ======================================== */
 nav[role="navigation"] {
   background: linear-gradient(180deg, #2C2C2C 0%, #1a1a1a 100%) !important;
@@ -75,12 +59,7 @@ nav .f3.fw2 {
   font-family: var(--pixel) !important;
   font-size: 0.7rem !important;
   color: var(--mario-red) !important;
-  text-shadow: 
-    3px 3px 0 #fff,
-    -2px -2px 0 #fff,
-    2px -2px 0 #fff,
-    -2px 2px 0 #fff,
-    4px 4px 0 #000 !important;
+  text-shadow: 3px 3px 0 #fff, -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff, 4px 4px 0 #000 !important;
   letter-spacing: 2px !important;
 }
 
@@ -101,9 +80,7 @@ nav a.hover-white {
   border: 3px solid #004400 !important;
   border-radius: 8px 8px 0 0 !important;
   border-bottom: 6px solid #004400 !important;
-  box-shadow: 
-    inset 0 4px 8px rgba(255,255,255,0.3),
-    0 4px 8px rgba(0,0,0,0.4) !important;
+  box-shadow: inset 0 4px 8px rgba(255,255,255,0.3), 0 4px 8px rgba(0,0,0,0.4) !important;
   display: inline-block !important;
   margin: 0 3px !important;
   transition: all 0.2s ease !important;
@@ -115,9 +92,7 @@ nav a.hover-white {
 nav a.hover-white:hover {
   transform: translateY(-3px) !important;
   background: linear-gradient(180deg, #00CC00 0%, var(--pipe-green) 100%) !important;
-  box-shadow: 
-    inset 0 4px 8px rgba(255,255,255,0.4),
-    0 6px 12px rgba(0,0,0,0.5) !important;
+  box-shadow: inset 0 4px 8px rgba(255,255,255,0.4), 0 6px 12px rgba(0,0,0,0.5) !important;
 }
 
 /* Texto de párrafos en NEGRO */
@@ -160,11 +135,7 @@ article a:hover {
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   background-clip: text !important;
-  text-shadow: 
-    4px 4px 0 #333,
-    -2px -2px 0 #333,
-    2px -2px 0 #333,
-    -2px 2px 0 #333 !important;
+  text-shadow: 4px 4px 0 #333, -2px -2px 0 #333, 2px -2px 0 #333, -2px 2px 0 #333 !important;
   animation: titlePulse 2s infinite !important;
   letter-spacing: 3px !important;
   text-align: center !important;
@@ -182,9 +153,7 @@ article a:hover {
   font-family: var(--retro) !important;
   font-size: 1.4rem !important;
   color: #FFF !important;
-  text-shadow: 
-    2px 2px 0 #333,
-    -1px -1px 0 #333 !important;
+  text-shadow: 2px 2px 0 #333, -1px -1px 0 #333 !important;
   background: rgba(0,0,0,0.3) !important;
   padding: 10px 20px !important;
   border-radius: 20px !important;
@@ -208,9 +177,7 @@ article a:hover {
   border: 4px solid var(--gold) !important;
   border-radius: 8px !important;
   padding: 10px 20px !important;
-  box-shadow: 
-    0 4px 0 #333,
-    0 8px 15px rgba(0,0,0,0.4) !important;
+  box-shadow: 0 4px 0 #333, 0 8px 15px rgba(0,0,0,0.4) !important;
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
@@ -244,9 +211,7 @@ article.bb {
   background: linear-gradient(135deg, #FFF 0%, #F5F5F5 100%) !important;
   border: 4px solid var(--brick) !important;
   border-radius: 8px !important;
-  box-shadow: 
-    6px 6px 0 rgba(0,0,0,0.2),
-    inset -4px -4px 0 rgba(0,0,0,0.1) !important;
+  box-shadow: 6px 6px 0 rgba(0,0,0,0.2), inset -4px -4px 0 rgba(0,0,0,0.1) !important;
   position: relative !important;
   overflow: hidden !important;
   margin-bottom: 30px !important;
@@ -312,70 +277,4 @@ h1.f3.fw1.athelas a:hover {
 }
 
 /* Botón Leer más */
-a.ba.b--moon-gray.bg-light-gray {
-  background: linear-gradient(180deg, var(--luigi-green) 0%, var(--luigi-dark) 100%) !important;
-  color: white !important;
-  font-family: var(--pixel) !important;
-  font-size: 0.55rem !important;
-  border: 3px solid #333 !important;
-  border-radius: 20px !important;
-  box-shadow: 3px 3px
-/* ========================================
-   TEXTO TODO EN NEGRO - Legibilidad
-   ======================================== */
-
-/* Todo el texto principal en negro */
-.nested-copy-line-height *,
-.lh-copy *,
-article *,
-.post-content *,
-.content *,
-main article p,
-main article li,
-main article span,
-main article h1,
-main article h2,
-main article h3,
-main article h4,
-main article h5,
-main article h6,
-aside *,
-.page-content *,
-.page-about *,
-.listing-page *,
-.taxonomy-page *,
-.term-page * {
-  color: #000 !important;
-}
-
-/* Excepción: títulos mantienen sus colores */
-h1 a, h2 a, h3 a,
-article h1, article h2, article h3,
-.post-title, .entry-title {
-  color: var(--mario-red) !important;
-}
-
-/* Links en posts */
-a {
-  color: var(--mario-red) !important;
-}
-
-a:hover {
-  color: var(--luigi-green) !important;
-}
-
-/* Código en bloques de código */
-pre code {
-  color: #00FF00 !important;
-}
-
-/* Footer - texto claro para contraste */
-footer *,
-footer p,
-footer a {
-  color: #FFF !important;
-}
-
-footer a:hover {
-  color: var(--gold) !important;
-}
+a
