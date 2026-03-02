@@ -270,23 +270,35 @@ article a:hover, p a:hover, li a:hover {
 }
 
 /* ========================================
-   BLOQUES DE CÓDIGO - Terminal style
+   BLOQUES DE CÓDIGO - Estilo Claro y Legible
    ======================================== */
 pre {
-  background: #1a1a2e !important;
+  background: #f5f5f5 !important;
   border: 3px solid #333 !important;
   border-radius: 8px !important;
   padding: 15px !important;
   overflow-x: auto !important;
-  box-shadow: inset 0 0 20px rgba(0,0,0,0.5), 4px 4px 0 rgba(0,0,0,0.2) !important;
+  box-shadow: 4px 4px 0 rgba(0,0,0,0.2) !important;
   margin: 15px 0 !important;
 }
 
 pre code {
-  color: #FFF !important;
+  color: #333 !important;
   font-family: 'Courier New', monospace !important;
   font-size: 0.9rem !important;
   line-height: 1.5 !important;
+  text-shadow: none !important;
+}
+
+/* Sintaxis destacada */
+pre code .k, pre code .kd, pre code .kn { color: #0066cc !important; font-weight: bold !important; } /* Keywords - azul */
+pre code .s, pre code .s1, pre code .s2 { color: #228822 !important; } /* Strings - verde */
+pre code .n, pre code .na { color: #333 !important; } /* Nombres - negro */
+pre code .c, pre code .c1 { color: #888 !important; font-style: italic !important; } /* Comentarios - gris */
+pre code .nb { color: #cc6600 !important; } /* Built-in - naranja */
+pre code .nf { color: #6600cc !important; } /* Funciones - morado */
+pre code .mi, pre code .mf { color: #cc0000 !important; } /* Números - rojo */
+pre code .o, pre code .p { color: #666 !important; } /* Operadores - gris oscuro */
 
 /* ========================================
    RESPONSIVE - Móviles
