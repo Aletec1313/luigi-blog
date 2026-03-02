@@ -290,6 +290,18 @@ pre code {
   text-shadow: none !important;
 }
 
+/* Código inline (no en bloques pre) */
+code {
+  background: #e8e8e8 !important;
+  color: #333 !important;
+  padding: 2px 6px !important;
+  border-radius: 4px !important;
+  font-family: 'Courier New', monospace !important;
+  font-size: 0.85rem !important;
+  font-weight: bold !important;
+  border: 1px solid #ccc !important;
+}
+
 /* Sintaxis destacada */
 pre code .k, pre code .kd, pre code .kn { color: #0066cc !important; font-weight: bold !important; } /* Keywords - azul */
 pre code .s, pre code .s1, pre code .s2 { color: #228822 !important; } /* Strings - verde */
