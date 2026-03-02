@@ -219,13 +219,6 @@ Tiempo total: 4.2 segundos
 
 **Ahorro anual:** ~45.000€ (incluyendo costes de API y electricidad)
 
-## 🎯 Caso de Éxito: Asesoría "Legiscan" (Las Palmas)
-
-Implementación real desde febrero 2026:
-
-> *"Procesamos 230 facturas en 3h lo que antes llevaba 3 días. Mario y Luigi no se cansan, no piden vacaciones y no cometen errores de transcripción. El equipo humano se centra en asesoramiento fiscal estratégico, no en mecanografía."*
-> — Alex Cabrera, Director Legiscan
-
 ## 🔐 Consideraciones de Seguridad
 
 ⚠️ **Datos fiscales son sensibles:**
@@ -266,7 +259,6 @@ El resultado es una **aselería más eficiente**, con:
 - [OpenClaw Oficial](https://openclaw.ai)
 - [Repositorio GitHub de este blog](https://github.com/Aletec1313/luigi-blog)
 - [Documentación OpenClaw Skills](https://clawhub.com)
-- Contacto: *Legiscan Asesores, Las Palmas*
 
 ---
 
