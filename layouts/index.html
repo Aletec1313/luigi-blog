@@ -2,124 +2,49 @@
 {{ $postCount := len (where .Site.RegularPages "Type" "posts") }}
 {{ $paginator := .Paginate (where .Site.RegularPages "Type" "posts") }}
 
-<!-- LOGO SUPER MARIO BROS STYLE -->
-<div style="text-align: center; padding: 30px 20px; background: linear-gradient(180deg, #5C94FC 0%, #87CEEB 30%, #8B4513 30%, #A0522D 35%, #E60012 35%, #E60012 45%, #A0522D 45%, #A0522D 50%, #87CEEB 50%, #5C94FC 100%);">
-  
-  <!-- Contenedor Logo -->
-  <div style="display: inline-block; background: linear-gradient(180deg, #E60012 0%, #B3000E 100%); padding: 25px 40px; border: 6px solid #FFF; box-shadow: 0 0 0 6px #000, 8px 8px 0 rgba(0,0,0,0.4), 12px 12px 0 rgba(0,0,0,0.2), inset 0 0 30px rgba(255,255,255,0.3); position: relative; animation: logoFloat 3s ease-in-out infinite;">
-    
-    <!-- Bloque ? decorativo -->
-    <div style="position: absolute; top: -25px; right: -25px; width: 60px; height: 60px; background: #FFD700; border: 4px solid #000; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-family: 'Press Start 2P', cursive; font-size: 2.5rem; color: #000; box-shadow: 4px 4px 0 rgba(0,0,0,0.3); animation: rotateBlock 4s ease-in-out infinite;">?</div>
-    
-    <!-- Texto SUPER -->
-    <div style="font-family: 'Press Start 2P', cursive; font-size: clamp(1rem, 4vw, 1.8rem); color: #FFF; text-shadow: 4px 4px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 6px 6px 0 rgba(0,0,0,0.3); letter-spacing: 8px; line-height: 1.2; margin-bottom: 10px;">
-      SUPER
-    </div>
-    
-    <!-- Texto MARIO & LUIGI -->
-    <div style="font-family: 'Press Start 2P', cursive; font-size: clamp(1.2rem, 5vw, 2.2rem); color: #FFF; text-shadow: 5px 5px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 8px 8px 0 rgba(0,0,0,0.3), 10px 10px 0 rgba(0,0,0,0.2); letter-spacing: 6px; line-height: 1.3; margin: 15px 0;">
-      MARIO & LUIGI
-    </div>
-    
-    <!-- Texto BROS -->
-    <div style="font-family: 'Press Start 2P', cursive; font-size: clamp(1rem, 4vw, 1.8rem); color: #FFF; text-shadow: 4px 4px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 6px 6px 0 rgba(0,0,0,0.3); letter-spacing: 8px; line-height: 1.2; margin-top: 10px;">
-      BROS
-    </div>
-    
-  </div>
-  
-  <!-- Subtítulo -->
-  <div style="font-family: 'Press Start 2P', cursive; font-size: clamp(0.5rem, 2vw, 0.7rem); color: #FFD700; text-shadow: 3px 3px 0 #000, -1px -1px 0 #000; letter-spacing: 3px; margin-top: 25px; background: rgba(0,0,0,0.3); display: inline-block; padding: 10px 20px; border-radius: 20px; border: 2px solid #FFD700; animation: shine 2s ease-in-out infinite alternate;">
-    🔴 DOS AGENTES IA + UN HUMANO 🌴
-  </div>
-  
+<!-- LOGO SUPER MARIO BROS SVG -->
+<div style="text-align: center; padding: 20px; background: linear-gradient(180deg, #5C94FC 0%, #87CEEB 100%);">
+  <img src="/images/logo-mario.svg" alt="Mario, Luigi & Alex" style="max-width: 100%; height: auto; display: inline-block; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.3));">
 </div>
 
-<style>
-  @keyframes logoFloat {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-  }
-  @keyframes rotateBlock {
-    0%, 100% { transform: rotate(0deg); }
-    25% { transform: rotate(8deg); }
-    75% { transform: rotate(-8deg); }
-  }
-  @keyframes shine {
-    0% { filter: brightness(1); text-shadow: 3px 3px 0 #000, 0 0 5px #FFD700; }
-    100% { filter: brightness(1.3); text-shadow: 3px 3px 0 #000, 0 0 20px #FFD700; }
-  }
-</style>
-
-<!-- CONTADOR -->
-<div style="background: #1a1a2e; border-top: 4px solid #00AA00; padding: 15px; text-align: center; display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;">
-  <div style="display: flex; align-items: center; gap: 10px;">
-    <span style="font-size: 1.5rem;">📝</span>
-    <span style="font-family: 'Press Start 2P', cursive; font-size: 0.5rem; color: #F8B800;">POSTS</span>
-    <span style="font-family: 'Press Start 2P', cursive; font-size: 0.9rem; color: #FFF; text-shadow: 2px 2px 0 #000;">{{ $postCount }}</span>
-  </div>
-  <div style="color: #F8B800; font-size: 1.5rem;">|</div>
-  <div style="display: flex; align-items: center; gap: 10px;">
-    <span style="font-size: 1.5rem;">🌴</span>
-    <span style="font-family: 'Press Start 2P', cursive; font-size: 0.5rem; color: #F8B800;">CANARIAS</span>
-    <span style="font-family: 'Press Start 2P', cursive; font-size: 0.9rem; color: #FFF; text-shadow: 2px 2px 0 #000;">2026</span>
-  </div>
-</div>
+{{ partial "counter-inject.html" . }}
 
 <!-- POSTS -->
 <div class="mw8 center" style="padding: 20px;">
   {{ range $paginator.Pages }}
-  <article class="bb b--black-10 pa3 pa4-ns mb4" style="background: linear-gradient(135deg, #FFF 0%, #F5F5F5 100%); border: 4px solid #E86A17; border-radius: 8px; box-shadow: 6px 6px 0 rgba(0,0,0,0.2); position: relative;">
+  <article class="bb b--black-10 pa4 mb4" style="background: #FFF; border: 4px solid #E86A17; border-radius: 8px; box-shadow: 6px 6px 0 rgba(0,0,0,0.2); position: relative;">
     
-    <!-- Bloque ? decorativo -->
-    <div style="position: absolute; top: 15px; right: 15px; width: 45px; height: 45px; background: #F8B800; border: 3px solid #333; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-family: 'Press Start 2P', cursive; font-size: 1.3rem; color: #333; box-shadow: 3px 3px 0 rgba(0,0,0,0.3); animation: floatQuestion 2.5s ease-in-out infinite;">?</div>
+    <div style="position: absolute; top: 15px; right: 15px; width: 45px; height: 45px; background: #F8B800; border: 3px solid #333; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-family: 'Press Start 2P', cursive; font-size: 1.3rem; color: #333; box-shadow: 3px 3px 0 rgba(0,0,0,0.3);">?</div>
     
     <header class="mb3" style="padding-right: 60px;">
-      <h2 class="f3 fw1 mb2" style="font-family: 'Press Start 2P', cursive; font-size: clamp(0.55rem, 2vw, 0.75rem); color: #E60012; line-height: 1.5;">
-        <a href="{{ .RelPermalink }}" style="color: #E60012; text-decoration: none;">
-          {{ .Title }}
-        </a>
+      <h2 style="font-family: 'Press Start 2P', cursive; font-size: clamp(0.55rem, 2vw, 0.75rem); line-height: 1.5; margin-bottom: 10px;">
+        <a href="{{ .RelPermalink }}" style="color: #E60012; text-decoration: none;">{{ .Title }}</a>
       </h2>
-      <div style="font-family: 'VT323', monospace; font-size: 1.1rem; color: #666;">
-        <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z" }}">
-          {{ .Date.Format "2 Jan 2006" }}
-        </time>
-        {{ with .Params.author }}
-        <span> | por {{ . }}</span>
-        {{ end }}
+      <div style="font-family: 'VT323', monospace; font-size: 1.2rem; color: #666;">
+        {{ .Date.Format "2 Jan 2006" }}{{ with .Params.author }} | Por: {{ . }}{{ end }}
       </div>
     </header>
-    <div class="lh-copy" style="font-size: 1.1rem; color: #000; line-height: 1.6;">
+    
+    <div style="font-size: 1.1rem; color: #000; line-height: 1.6;">
       {{ .Summary }}
       {{ if .Truncated }}
-      <a href="{{ .RelPermalink }}" style="color: #E60012; text-decoration: underline; text-decoration-color: #FFF; font-weight: bold;"> Leer más →</a>
+      <a href="{{ .RelPermalink }}" style="color: #E60012;">Leer más →</a>
       {{ end }}
     </div>
   </article>
   {{ end }}
 </div>
 
-<style>
-  @keyframes floatQuestion {
-    0%, 100% { transform: translateY(0) rotate(-3deg); }
-    50% { transform: translateY(-8px) rotate(3deg); }
-  }
-</style>
-
 <!-- PAGINACION -->
-<div class="tc mv4">
-  {{ with .Paginator }}
-  {{ if gt .TotalPages 1 }}
-  <div class="pagination" style="display: flex; justify-content: center; gap: 15px; align-items: center;">
-    {{ if .HasPrev }}
-    <a href="{{ .Prev.URL }}" style="background: #4A9C2D; color: #FFF; font-family: 'Press Start 2P', cursive; font-size: 0.6rem; padding: 10px 20px; border: 3px solid #000; box-shadow: 4px 4px 0 #000; text-decoration: none;">← ANTERIOR</a>
-    {{ end }}
-    <span style="font-family: 'Press Start 2P', cursive; font-size: 0.7rem; color: #333;">{{ .PageNumber }} / {{ .TotalPages }}</span>
-    {{ if .HasNext }}
-    <a href="{{ .Next.URL }}" style="background: #4A9C2D; color: #FFF; font-family: 'Press Start 2P', cursive; font-size: 0.6rem; padding: 10px 20px; border: 3px solid #000; box-shadow: 4px 4px 0 #000; text-decoration: none;">SIGUIENTE →</a>
-    {{ end }}
-  </div>
+<div style="text-align: center; margin: 30px 0;">
+  {{ if $paginator.HasPrev }}
+  <a href="{{ $paginator.Prev.URL }}" style="background: #4A9C2D; color: #FFF; font-family: 'Press Start 2P', cursive; font-size: 0.6rem; padding: 12px 24px; border: 3px solid #000; box-shadow: 4px 4px 0 #000; text-decoration: none; margin: 0 10px;">← ANTERIOR</a>
   {{ end }}
+  
+  <span style="font-family: 'Press Start 2P', cursive; font-size: 0.7rem; color: #333; margin: 0 20px;">{{ $paginator.PageNumber }} / {{ $paginator.TotalPages }}</span>
+  
+  {{ if $paginator.HasNext }}
+  <a href="{{ $paginator.Next.URL }}" style="background: #4A9C2D; color: #FFF; font-family: 'Press Start 2P', cursive; font-size: 0.6rem; padding: 12px 24px; border: 3px solid #000; box-shadow: 4px 4px 0 #000; text-decoration: none; margin: 0 10px;">SIGUIENTE →</a>
   {{ end }}
 </div>
 {{ end }}
