@@ -1,10 +1,10 @@
 <script>
-// Contador de visitas sin límite - incrementa con cada visita
+// Contador de visitas sin límite - posicionado debajo del menú
 (function() {
   // Contador de visitas basado en localStorage
   let visitCount = localStorage.getItem('luigiBlogVisits');
   if (!visitCount) {
-    visitCount = 1337; // Valor inicial
+    visitCount = 1337;
   } else {
     visitCount = parseInt(visitCount) + 1;
   }
@@ -15,98 +15,86 @@
   
   // Inyectar contadores cuando cargue el DOM
   document.addEventListener('DOMContentLoaded', function() {
-    const container = document.querySelector('nav[role="navigation"]') || document.querySelector('header') || document.body;
-    if (container) {
+    const nav = document.querySelector('nav[role="navigation"]');
+    if (nav) {
       const counterHTML = `
-        <div class="counter-container">
-          <div class="counter-box" title="Posts publicados">
-            <span class="counter-icon">📝</span>
-            <span>Posts</span>
-            <span class="counter-number" id="post-count">${postCount}</span>
+        <div class="counter-below-nav">
+          <div class="counter-item">
+            <span class="icon">📝</span>
+            <span class="label">Posts</span>
+            <span class="number" id="post-count">${postCount}</span>
           </div>
-          <div class="counter-box" title="Visitas totales (sin límite)">
-            <span class="counter-icon">👀</span>
-            <span>Visitas</span>
-            <span class="counter-number" id="visit-count">${visitCount.toLocaleString()}</span>
+          <div class="separator">|</div>
+          <div class="counter-item">
+            <span class="icon">👀</span>
+            <span class="label">Visitas</span>
+            <span class="number" id="visit-count">${visitCount.toLocaleString()}</span>
           </div>
         </div>
       `;
-      // Insertar después del menú de navegación
-      if (container.tagName === 'NAV') {
-        container.insertAdjacentHTML('afterend', counterHTML);
-      } else {
-        container.insertAdjacentHTML('beforeend', counterHTML);
-      }
+      // Insertar después del nav
+      nav.insertAdjacentHTML('afterend', counterHTML);
     }
   });
 })();
 </script>
 
 <style>
-.counter-container {
+.counter-below-nav {
+  background: linear-gradient(180deg, #2C2C2C 0%, #1a1a1a 100%) !important;
+  border-top: 3px solid var(--pipe-green, #00AA00) !important;
+  padding: 12px 20px !important;
   display: flex !important;
-  gap: 12px !important;
   justify-content: center !important;
-  margin: 15px auto !important;
-  flex-wrap: wrap !important;
-  z-index: 1000 !important;
-}
-
-.counter-box {
-  background: linear-gradient(180deg, #1a1a2e 0%, #0d0d1a 100%) !important;
-  border: 3px solid #F8B800 !important;
-  border-radius: 8px !important;
-  padding: 10px 15px !important;
-  box-shadow: 0 4px 0 #333, 0 6px 12px rgba(0,0,0,0.4) !important;
-  display: flex !important;
-  flex-direction: column !important;
   align-items: center !important;
-  min-width: 100px !important;
-  transition: transform 0.2s ease !important;
+  gap: 20px !important;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3) !important;
+  position: relative !important;
+  z-index: 100 !important;
 }
 
-.counter-box:hover {
-  transform: translateY(-2px) !important;
+.counter-item {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
 }
 
-.counter-box span:nth-child(2) {
+.counter-item .icon {
+  font-size: 1.2rem !important;
+}
+
+.counter-item .label {
   font-family: 'Press Start 2P', cursive !important;
-  font-size: 0.4rem !important;
+  font-size: 0.45rem !important;
   color: #F8B800 !important;
   text-transform: uppercase !important;
   letter-spacing: 1px !important;
-  margin-top: 4px !important;
 }
 
-.counter-number {
+.counter-item .number {
   font-family: 'Press Start 2P', cursive !important;
-  font-size: 0.9rem !important;
+  font-size: 0.7rem !important;
   color: #FFF !important;
   text-shadow: 2px 2px 0 #000 !important;
-  margin-top: 6px !important;
 }
 
-.counter-icon {
-  font-size: 1.5rem !important;
-  animation: bounce 2s ease-in-out infinite !important;
-}
-
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-3px); }
+.separator {
+  color: #F8B800 !important;
+  font-weight: bold !important;
+  font-size: 1rem !important;
 }
 
 @media (max-width: 768px) {
-  .counter-container {
-    gap: 8px !important;
-    margin: 10px auto !important;
+  .counter-below-nav {
+    flex-wrap: wrap !important;
+    gap: 15px !important;
+    padding: 10px !important;
   }
-  .counter-box {
-    min-width: 80px !important;
-    padding: 8px 12px !important;
+  .counter-item .label {
+    font-size: 0.4rem !important;
   }
-  .counter-number {
-    font-size: 0.75rem !important;
+  .counter-item .number {
+    font-size: 0.6rem !important;
   }
 }
 </style>
