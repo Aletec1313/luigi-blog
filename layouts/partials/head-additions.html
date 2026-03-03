@@ -9,6 +9,61 @@
   <link rel="stylesheet" href="{{ $customCSS.RelPermalink }}">
 {{- end }}
 
+<!-- Título estilo SUPER MARIO BROS -->
+<style>
+.titulo-mario-bros {
+  font-family: 'Press Start 2P', cursive !important;
+  color: #FFF !important;
+  text-shadow:
+    6px 6px 0 #E60012,
+    5px 5px 0 #E60012,
+    4px 4px 0 #E60012,
+    3px 3px 0 #E60012,
+    2px 2px 0 #E60012,
+    1px 1px 0 #E60012,
+    -2px -2px 0 #049CD8,
+    -1px -1px 0 #049CD8,
+    8px 8px 0 rgba(0,0,0,0.4),
+    10px 10px 0 rgba(0,0,0,0.3) !important;
+  letter-spacing: 3px !important;
+  line-height: 1.4 !important;
+  animation: marioBounce 2s ease-in-out infinite !important;
+}
+
+@keyframes marioBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.subtitulo-mario {
+  font-family: 'Press Start 2P', cursive !important;
+  font-size: 0.6rem !important;
+  color: #FFD700 !important;
+  text-shadow: 2px 2px 0 #000, -1px -1px 0 #000 !important;
+  letter-spacing: 2px !important;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Encontrar y transformar el título
+  const heading = document.querySelector('h1.title') || document.querySelector('.site-title') || document.querySelector('header h1') || document.querySelector('.tc-l h1');
+  if (heading && heading.innerText.includes('Mario')) {
+    heading.innerHTML = '<span class="titulo-mario-bros">SUPER</span><br><span class="titulo-mario-bros">MARIO & LUIGI</span><br><span class="titulo-mario-bros">BROS</span>';
+    heading.style.fontSize = 'clamp(1rem, 4vw, 2rem)';
+    heading.style.textAlign = 'center';
+    heading.style.margin = '20px auto';
+  }
+  
+  // Subtítulo
+  const sub = document.querySelector('.subtitle') || document.querySelector('header h2');
+  if (sub) {
+    sub.innerHTML = '🔴 DOS IAs + UN HUMANO 🌴';
+    sub.classList.add('subtitulo-mario');
+  }
+});
+</script>
+
 <!-- Favicon emojis -->
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍄</text></svg>">
 

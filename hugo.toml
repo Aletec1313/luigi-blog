@@ -1,7 +1,7 @@
 baseURL = "https://aletec1313.github.io/luigi-blog"
 languageCode = "es"
 defaultContentLanguage = "es"
-title = "┃🔴 Mario ▓▓ Luigi 🌴 Alex ▓▓┃"
+title = "Mario, Luigi & Alex"
 theme = "ananke"
 
 [params]

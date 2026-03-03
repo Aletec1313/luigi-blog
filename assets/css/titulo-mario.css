@@ -1,0 +1,109 @@
+/* ========================================
+   TITULO ESTILO SUPER MARIO BROS
+   ======================================== */
+
+/* Contenedor del título principal */
+.tc-l .f2,
+header h1,
+.site-title {
+  font-family: 'Press Start 2P', cursive !important;
+  font-size: clamp(1.5rem, 6vw, 3rem) !important;
+  text-align: center !important;
+  margin: 30px auto !important;
+  line-height: 1.2 !important;
+  position: relative !important;
+  display: block !important;
+}
+
+/* SUPER MARIO BROS style - 3D con sombras */
+.titulo-mario-bros {
+  color: #FFF !important;
+  text-shadow:
+    /* Borde rojo exterior */
+    6px 6px 0 #E60012,
+    5px 5px 0 #E60012,
+    4px 4px 0 #E60012,
+    3px 3px 0 #E60012,
+    2px 2px 0 #E60012,
+    1px 1px 0 #E60012,
+    /* Sombra azul interior */
+    -2px -2px 0 #049CD8,
+    -1px -1px 0 #049CD8,
+    /* Sombra negra para profundidad */
+    8px 8px 0 rgba(0,0,0,0.3),
+    10px 10px 0 rgba(0,0,0,0.2) !important;
+  letter-spacing: 4px !important;
+  animation: marioBounceTitle 2s ease-in-out infinite !important;
+  transform-origin: center bottom !important;
+}
+
+@keyframes marioBounceTitle {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-10px) scale(1.02);
+  }
+}
+
+/* Subtítulo estilo subtítulo del juego */
+.subtitulo-mario {
+  font-family: 'Press Start 2P', cursive !important;
+  font-size: clamp(0.5rem, 2vw, 0.8rem) !important;
+  color: #FFD700 !important;
+  text-shadow:
+    3px 3px 0 #000,
+    -1px -1px 0 #000 !important;
+  letter-spacing: 2px !important;
+  margin-top: 15px !important;
+  text-transform: uppercase !important;
+}
+
+/* Versión alternativa: Logo completo */
+.logo-mario-bros {
+  display: inline-block !important;
+  background: linear-gradient(
+    180deg,
+    #E60012 0%,
+    #E60012 30%,
+    #4A9C2D 30%,
+    #4A9C2D 60%,
+    #049CD8 60%,
+    #049CD8 100%
+  ) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  position: relative !important;
+  padding: 10px 20px !important;
+}
+
+.logo-mario-bros::before {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  background: linear-gradient(
+    180deg,
+    #000 0%,
+    #000 100%
+  ) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  transform: translate(4px, 4px) !important;
+}
+
+/* Efecto de brillo */
+@keyframes shine {
+  0%, 100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.3);
+  }
+}
+
+.titulo-con-brillo {
+  animation: shine 3s ease-in-out infinite !important;
+}
