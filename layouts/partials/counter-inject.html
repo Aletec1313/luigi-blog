@@ -1,34 +1,54 @@
 <script>
-// Inyectar contadores después de que cargue el DOM
-document.addEventListener('DOMContentLoaded', function() {
-  const header = document.querySelector('header') || document.querySelector('.bg-black');
-  if (header) {
-    const counterHTML = `
-      <div class="counter-container">
-        <div class="counter-box">
-          <span class="counter-icon">📝</span>
-          <span>Posts</span>
-          <span class="counter-number" id="post-count">8</span>
-        </div>
-        <div class="counter-box">
-          <span class="counter-icon">👀</span>
-          <span>Visitas</span>
-          <span class="counter-number" id="visit-count">1,337</span>
-        </div>
-      </div>
-    `;
-    header.insertAdjacentHTML('beforeend', counterHTML);
+// Contador de visitas sin límite - incrementa con cada visita
+(function() {
+  // Contador de visitas basado en localStorage
+  let visitCount = localStorage.getItem('luigiBlogVisits');
+  if (!visitCount) {
+    visitCount = 1337; // Valor inicial
+  } else {
+    visitCount = parseInt(visitCount) + 1;
   }
-});
+  localStorage.setItem('luigiBlogVisits', visitCount);
+  
+  // Contador de posts (dinámico)
+  const postCount = document.querySelectorAll('article').length || 16;
+  
+  // Inyectar contadores cuando cargue el DOM
+  document.addEventListener('DOMContentLoaded', function() {
+    const container = document.querySelector('nav[role="navigation"]') || document.querySelector('header') || document.body;
+    if (container) {
+      const counterHTML = `
+        <div class="counter-container">
+          <div class="counter-box" title="Posts publicados">
+            <span class="counter-icon">📝</span>
+            <span>Posts</span>
+            <span class="counter-number" id="post-count">${postCount}</span>
+          </div>
+          <div class="counter-box" title="Visitas totales (sin límite)">
+            <span class="counter-icon">👀</span>
+            <span>Visitas</span>
+            <span class="counter-number" id="visit-count">${visitCount.toLocaleString()}</span>
+          </div>
+        </div>
+      `;
+      // Insertar después del menú de navegación
+      if (container.tagName === 'NAV') {
+        container.insertAdjacentHTML('afterend', counterHTML);
+      } else {
+        container.insertAdjacentHTML('beforeend', counterHTML);
+      }
+    }
+  });
+})();
 </script>
 
 <style>
 .counter-container {
-  position: absolute !important;
-  right: 20px !important;
-  top: 120px !important;
   display: flex !important;
   gap: 12px !important;
+  justify-content: center !important;
+  margin: 15px auto !important;
+  flex-wrap: wrap !important;
   z-index: 1000 !important;
 }
 
@@ -36,17 +56,22 @@ document.addEventListener('DOMContentLoaded', function() {
   background: linear-gradient(180deg, #1a1a2e 0%, #0d0d1a 100%) !important;
   border: 3px solid #F8B800 !important;
   border-radius: 8px !important;
-  padding: 8px 12px !important;
+  padding: 10px 15px !important;
   box-shadow: 0 4px 0 #333, 0 6px 12px rgba(0,0,0,0.4) !important;
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
-  min-width: 80px !important;
+  min-width: 100px !important;
+  transition: transform 0.2s ease !important;
+}
+
+.counter-box:hover {
+  transform: translateY(-2px) !important;
 }
 
 .counter-box span:nth-child(2) {
   font-family: 'Press Start 2P', cursive !important;
-  font-size: 0.35rem !important;
+  font-size: 0.4rem !important;
   color: #F8B800 !important;
   text-transform: uppercase !important;
   letter-spacing: 1px !important;
@@ -55,29 +80,33 @@ document.addEventListener('DOMContentLoaded', function() {
 
 .counter-number {
   font-family: 'Press Start 2P', cursive !important;
-  font-size: 0.7rem !important;
+  font-size: 0.9rem !important;
   color: #FFF !important;
   text-shadow: 2px 2px 0 #000 !important;
-  margin-top: 4px !important;
+  margin-top: 6px !important;
 }
 
 .counter-icon {
-  font-size: 1.2rem !important;
+  font-size: 1.5rem !important;
+  animation: bounce 2s ease-in-out infinite !important;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
 }
 
 @media (max-width: 768px) {
   .counter-container {
-    position: relative !important;
-    right: auto !important;
-    top: auto !important;
-    justify-content: center !important;
-    margin: 15px auto !important;
-    flex-wrap: wrap !important;
+    gap: 8px !important;
+    margin: 10px auto !important;
   }
-  
   .counter-box {
-    min-width: 70px !important;
-    padding: 6px 10px !important;
+    min-width: 80px !important;
+    padding: 8px 12px !important;
+  }
+  .counter-number {
+    font-size: 0.75rem !important;
   }
 }
 </style>
