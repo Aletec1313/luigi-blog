@@ -2,49 +2,66 @@
 {{ $postCount := len (where .Site.RegularPages "Type" "posts") }}
 {{ $paginator := .Paginate (where .Site.RegularPages "Type" "posts") }}
 
-<!-- LOGO SUPER MARIO BROS SVG -->
-<div style="text-align: center; padding: 20px; background: linear-gradient(180deg, #5C94FC 0%, #87CEEB 100%);">
-  <img src="/images/logo-mario.svg" alt="Mario, Luigi & Alex" style="max-width: 100%; height: auto; display: inline-block; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.3));">
+<!-- LOGO SUPER MARIO BROS -->
+<div style="text-align: center; padding: 20px; background: linear-gradient(180deg, #5C94FC 0%, #87CEEB 40%, #8B4513 40%, #8B4513 45%, #E60012 45%, #E60012 55%, #8B4513 55%, #8B4513 60%, #87CEEB 60%, #5C94FC 100%);">
+  <img src="/images/logo-mario.svg" alt="Mario, Luigi & Alex" style="max-width: 100%; height: auto; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.3)); display: inline-block;">
 </div>
 
 {{ partial "counter-inject.html" . }}
 
 <!-- POSTS -->
-<div class="mw8 center" style="padding: 20px;">
-  {{ range $paginator.Pages }}
-  <article class="bb b--black-10 pa4 mb4" style="background: #FFF; border: 4px solid #E86A17; border-radius: 8px; box-shadow: 6px 6px 0 rgba(0,0,0,0.2); position: relative;">
+<div style="max-width: 900px; margin: 0 auto; padding: 20px;">
+  
+  <h2 style="text-align: center; font-family: 'Press Start 2P', cursive; font-size: clamp(0.7rem, 2.5vw, 1rem); color: #E60012; text-shadow: 2px 2px 0 #FFF, -1px -1px 0 #FFF, 3px 3px 0 rgba(0,0,0,0.3); margin-bottom: 30px;">
+    📝 ÚLTIMOS POSTS 📝
+  </h2>
+  
+  {{ range $paginator.Pages.ByDate.Reverse }}
+  <article style="background: linear-gradient(135deg, #FFF 0%, #F8F8F8 100%); border: 4px solid #E86A17; border-radius: 8px; box-shadow: 6px 6px 0 rgba(0,0,0,0.2), inset 0 0 0 6px #E86A17; padding: 25px; margin-bottom: 30px; position: relative; overflow: hidden;">
     
-    <div style="position: absolute; top: 15px; right: 15px; width: 45px; height: 45px; background: #F8B800; border: 3px solid #333; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-family: 'Press Start 2P', cursive; font-size: 1.3rem; color: #333; box-shadow: 3px 3px 0 rgba(0,0,0,0.3);">?</div>
+    <!-- Bloque ? decorativo -->
+    <div style="position: absolute; top: 15px; right: 15px; width: 45px; height: 45px; background: #F8B800; border: 3px solid #333; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-family: 'Press Start 2P', cursive; font-size: 1.3rem; color: #333; box-shadow: 3px 3px 0 rgba(0,0,0,0.3); animation: floatQuestion2 2.5s ease-in-out infinite;">?</div>
     
-    <header class="mb3" style="padding-right: 60px;">
-      <h2 style="font-family: 'Press Start 2P', cursive; font-size: clamp(0.55rem, 2vw, 0.75rem); line-height: 1.5; margin-bottom: 10px;">
+    <!-- Barra superior de ladrillos -->
+    <div style="position: absolute; top: 0; left: 0; right: 0; height: 6px; background: repeating-linear-gradient(90deg, #E86A17 0px, #E86A17 30px, #333 30px, #333 32px);"></div>
+    
+    <header style="padding-right: 60px; margin-bottom: 15px; padding-top: 10px;">
+      <h2 style="font-family: 'Press Start 2P', cursive; font-size: clamp(0.5rem, 2vw, 0.75rem); line-height: 1.5; margin-bottom: 10px; text-shadow: 1px 1px 0 rgba(255,255,255,0.8);">
         <a href="{{ .RelPermalink }}" style="color: #E60012; text-decoration: none;">{{ .Title }}</a>
       </h2>
       <div style="font-family: 'VT323', monospace; font-size: 1.2rem; color: #666;">
-        {{ .Date.Format "2 Jan 2006" }}{{ with .Params.author }} | Por: {{ . }}{{ end }}
+        {{ .Date.Format "2 Jan 2006" }}{{ with .Params.author }} | ✍️ {{ . }}{{ end }}
       </div>
     </header>
     
-    <div style="font-size: 1.1rem; color: #000; line-height: 1.6;">
+    <div style="font-size: 1.05rem; color: #000; line-height: 1.6;">
       {{ .Summary }}
       {{ if .Truncated }}
-      <a href="{{ .RelPermalink }}" style="color: #E60012;">Leer más →</a>
+      <a href="{{ .RelPermalink }}" style="color: #E60012; text-decoration: underline; text-decoration-color: #FFF; font-weight: bold; margin-top: 10px; display: inline-block;">Leer más →</a>
       {{ end }}
     </div>
   </article>
   {{ end }}
+  
 </div>
 
+<style>
+@keyframes floatQuestion2 {
+  0%, 100% { transform: translateY(0) rotate(-3deg); }
+  50% { transform: translateY(-8px) rotate(3deg); }
+}
+</style>
+
 <!-- PAGINACION -->
-<div style="text-align: center; margin: 30px 0;">
+<div style="text-align: center; margin: 40px 0; padding-bottom: 40px;">
   {{ if $paginator.HasPrev }}
-  <a href="{{ $paginator.Prev.URL }}" style="background: #4A9C2D; color: #FFF; font-family: 'Press Start 2P', cursive; font-size: 0.6rem; padding: 12px 24px; border: 3px solid #000; box-shadow: 4px 4px 0 #000; text-decoration: none; margin: 0 10px;">← ANTERIOR</a>
+  <a href="{{ $paginator.Prev.URL }}" style="background: #4A9C2D; color: #FFF; font-family: 'Press Start 2P', cursive; font-size: 0.55rem; padding: 12px 24px; border: 3px solid #000; box-shadow: 4px 4px 0 #000, 0 4px 8px rgba(0,0,0,0.3); text-decoration: none; margin: 0 10px; display: inline-block; transition: all 0.15s; border-radius: 0;" onmouseover="this.style.transform='translate(2px, 2px)'; this.style.boxShadow='2px 2px 0 #000, 0 2px 4px rgba(0,0,0,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='';">← ANTERIOR</a>
   {{ end }}
   
-  <span style="font-family: 'Press Start 2P', cursive; font-size: 0.7rem; color: #333; margin: 0 20px;">{{ $paginator.PageNumber }} / {{ $paginator.TotalPages }}</span>
+  <span style="font-family: 'Press Start 2P', cursive; font-size: 0.7rem; color: #333; margin: 0 20px; display: inline-block;">{{ $paginator.PageNumber }} / {{ $paginator.TotalPages }}</span>
   
   {{ if $paginator.HasNext }}
-  <a href="{{ $paginator.Next.URL }}" style="background: #4A9C2D; color: #FFF; font-family: 'Press Start 2P', cursive; font-size: 0.6rem; padding: 12px 24px; border: 3px solid #000; box-shadow: 4px 4px 0 #000; text-decoration: none; margin: 0 10px;">SIGUIENTE →</a>
+  <a href="{{ $paginator.Next.URL }}" style="background: #4A9C2D; color: #FFF; font-family: 'Press Start 2P', cursive; font-size: 0.55rem; padding: 12px 24px; border: 3px solid #000; box-shadow: 4px 4px 0 #000, 0 4px 8px rgba(0,0,0,0.3); text-decoration: none; margin: 0 10px; display: inline-block;" onmouseover="this.style.transform='translate(2px, 2px)'; this.style.boxShadow='2px 2px 0 #000, 0 2px 4px rgba(0,0,0,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='';">SIGUIENTE →</a>
   {{ end }}
 </div>
 {{ end }}
