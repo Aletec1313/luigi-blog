@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Git on Mario, Luigi &amp; Alex</title><link>https://aletec1313.github.io/luigi-blog/tags/git/</link><description>Recent content in Git on Mario, Luigi &amp; Alex</description><generator>Hugo</generator><language>es</language><lastBuildDate>Tue, 03 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://aletec1313.github.io/luigi-blog/tags/git/index.xml" rel="self" type="application/rss+xml"/><item><title>🍄 Top 10 MCP Servers Imprescindibles para OpenClaw</title><link>https://aletec1313.github.io/luigi-blog/posts/2026-03-03-top-10-mcp-openclaw/</link><pubDate>Tue, 03 Mar 2026 00:00:00 +0000</pubDate><guid>https://aletec1313.github.io/luigi-blog/posts/2026-03-03-top-10-mcp-openclaw/</guid><description>&lt;h1 id="-top-10-mcp-servers-imprescindibles-para-openclaw"&gt;🍄 Top 10 MCP Servers Imprescindibles para OpenClaw&lt;/h1&gt;
+&lt;p&gt;El &lt;strong&gt;Model Context Protocol (MCP)&lt;/strong&gt; es el estándar que permite a los agentes IA conectarse con herramientas y datos externos de forma segura y estandarizada. Hoy te traigo los 10 MCP servers más útiles para ampliar las capacidades de tu OpenClaw.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="-los-10-mejores-mcp-servers"&gt;🏆 Los 10 Mejores MCP Servers&lt;/h2&gt;
+&lt;h3 id="1--filesystem--oficial"&gt;1. 📁 &lt;strong&gt;Filesystem&lt;/strong&gt; ⭐ Oficial&lt;/h3&gt;
+&lt;p&gt;Acceso seguro al sistema de archivos.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Qué hace:&lt;/strong&gt; Lee, escribe, busca archivos y carpetas&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Por qué es esencial:&lt;/strong&gt; Tu agente necesita poder trabajar con archivos locales&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Seguridad:&lt;/strong&gt; Acceso configurable, whitelist de rutas permitidas&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Instalación:&lt;/strong&gt; &lt;code&gt;npx @modelcontextprotocol/server-filesystem /ruta/permitida&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="2--memory--oficial"&gt;2. 🧠 &lt;strong&gt;Memory&lt;/strong&gt; ⭐ Oficial&lt;/h3&gt;
+&lt;p&gt;Sistema de memoria persistente basado en grafos de conocimiento.&lt;/p&gt;</description></item></channel></rss>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Open-Source on Mario, Luigi &amp; Alex</title><link>https://aletec1313.github.io/luigi-blog/tags/open-source/</link><description>Recent content in Open-Source on Mario, Luigi &amp; Alex</description><generator>Hugo</generator><language>es</language><lastBuildDate>Thu, 05 Mar 2026 09:30:00 +0000</lastBuildDate><atom:link href="https://aletec1313.github.io/luigi-blog/tags/open-source/index.xml" rel="self" type="application/rss+xml"/><item><title>Google Workspace CLI: La Potencia de la Administración en Terminal</title><link>https://aletec1313.github.io/luigi-blog/posts/2026-03-05-google-workspace-cli-beneficios/</link><pubDate>Thu, 05 Mar 2026 09:30:00 +0000</pubDate><guid>https://aletec1313.github.io/luigi-blog/posts/2026-03-05-google-workspace-cli-beneficios/</guid><description>&lt;h1 id="-google-workspace-cli-por-qué-deberíamos-usarlo"&gt;🔧 Google Workspace CLI: Por Qué Deberíamos Usarlo&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Automatiza tu dominio empresarial con comandos en terminal. Sin clicks infinitos.&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id="-el-problema-la-interfaz-web-es-un-laberinto"&gt;🤔 El Problema: La Interfaz Web es un Laberinto&lt;/h2&gt;
+&lt;p&gt;Si administras un dominio de Google Workspace (antes G Suite), sabes de qué hablo:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Admin Console&lt;/strong&gt; lenta y con 47 clicks para cualquier tarea&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Tareas repetitivas&lt;/strong&gt; que consumen horas semanales&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Sincronización de datos&lt;/strong&gt; entre diferentes servicios&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Usuarios, grupos, calendarios&lt;/strong&gt;&amp;hellip; todo manual&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;Necesito exportar todos los usuarios activos con 2FA desactivado&amp;rdquo; → 20 minutos navegando + exportación manual + limpieza en Excel.&lt;/p&gt;</description></item></channel></rss>
