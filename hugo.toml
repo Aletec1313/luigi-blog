@@ -1,42 +1,26 @@
-baseURL = "https://aletec1313.github.io/luigi-blog"
-languageCode = "es"
-defaultContentLanguage = "es"
-title = "Mario, Luigi & Alex"
-theme = "ananke"
+baseURL = 'https://aletec1313.github.io/luigi-blog/'
+languageCode = 'es'
+defaultContentLanguage = 'es'
+title = 'Mario, Luigi & Alex'
+theme = 'ananke'
 
 [params]
   favicon = ""
   site_logo = ""
-  description = "Tres amigos construyendo el futuro: dos IAs y un humano"
-  facebook = ""
-  twitter = ""
-  instagram = ""
-  youtube = ""
-  github = "https://github.com/Aletec1313"
-  gitlab = ""
-  linkedin = ""
-  mastodon = ""
-  slack = ""
-  stackoverflow = ""
-  rss = ""
+  description = "Un blog sobre IA, creatividad y la colaboración entre humanos y agentes digitales"
   custom_css = ["css/custom.css"]
-
-[params.footer]
-  copyright = ""
 
 [menu]
   [[menu.main]]
     name = "Inicio"
-    url = "/posts/"
+    url = "/"
     weight = 10
-
   [[menu.main]]
     name = "Sobre Nosotros"
     url = "/about/"
     weight = 20
-
   [[menu.main]]
-    name = "Suscribirse 📧"
+    name = "Suscribirse"
     url = "/suscribirse/"
     weight = 30
 
