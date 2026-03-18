@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 320" width="700" height="320" id="logo-mario">
+  <defs>
+    <linearGradient id="skyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#5C94FC;stop-opacity:1" />
+      <stop offset="60%" style="stop-color:#87CEEB;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#87CEEB;stop-opacity:1" />
+    </linearGradient>
+    
+    <filter id="shadow3d">
+      <feDropShadow dx="8" dy="8" stdDeviation="0" flood-color="#000" flood-opacity="0.8"/>
+    </filter>
+  </defs>
+  
+  <!-- FONDO CIELO -->
+  <rect width="700" height="300" fill="url(#skyGradient)"/>
+  
+  <!-- NUBES -->
+  <g opacity="0.9" id="clouds">
+    <ellipse cx="120" cy="60" rx="40" ry="25" fill="#FFF"/>
+    <ellipse cx="145" cy="50" rx="35" ry="20" fill="#FFF"/>
+    <ellipse cx="95" cy="55" rx="30" ry="18" fill="#FFF"/>
+    <ellipse cx="550" cy="80" rx="45" ry="28" fill="#FFF"/>
+    <ellipse cx="580" cy="70" rx="38" ry="22" fill="#FFF"/>
+    <ellipse cx="520" cy="75" rx="32" ry="20" fill="#FFF"/>
+  </g>
+  
+  <!-- TUBO IZQUIERDA -->
+  <g transform="translate(50, 120)">
+    <rect x="0" y="40" width="80" height="120" fill="#00AA00" stroke="#004400" stroke-width="4"/>
+    <rect x="-10" y="0" width="100" height="40" fill="#00CC00" stroke="#004400" stroke-width="4"/>
+    <ellipse cx="40" cy="160" rx="38" ry="8" fill="#008800" opacity="0.5"/>
+    <rect x="8" y="50" width="15" height="100" fill="#33CC33" opacity="0.4"/>
+  </g>
+  
+  <!-- TUBO DERECHA -->
+  <g transform="translate(570, 120)">
+    <rect x="0" y="40" width="80" height="120" fill="#00AA00" stroke="#004400" stroke-width="4"/>
+    <rect x="-10" y="0" width="100" height="40" fill="#00CC00" stroke="#004400" stroke-width="4"/>
+    <ellipse cx="40" cy="160" rx="38" ry="8" fill="#008800" opacity="0.5"/>
+    <rect x="8" y="50" width="15" height="100" fill="#33CC33" opacity="0.4"/>
+  </g>
+  
+  <!-- BLOQUE PRINCIPAL -->
+  <g transform="translate(180, 50)">
+    <rect x="12" y="12" width="340" height="180" fill="none" stroke="#000" stroke-width="3" opacity="0.3"/>
+    <rect x="-6" y="-6" width="376" height="216" fill="none" stroke="#FFF" stroke-width="8" rx="2"/>
+    <rect x="-12" y="-12" width="388" height="228" fill="none" stroke="#000" stroke-width="8" rx="2"/>
+    <rect x="0" y="0" width="340" height="180" fill="#E52521" stroke="#B3000E" stroke-width="4"/>
+    
+    <!-- LADRILLOS -->
+    <g opacity="0.1">
+      <line x1="0" y1="36" x2="340" y2="36" stroke="#000" stroke-width="2"/>
+      <line x1="0" y1="72" x2="340" y2="72" stroke="#000" stroke-width="2"/>
+      <line x1="0" y1="108" x2="340" y2="108" stroke="#000" stroke-width="2"/>
+      <line x1="0" y1="144" x2="340" y2="144" stroke="#000" stroke-width="2"/>
+      <line x1="68" y1="0" x2="68" y2="180" stroke="#000" stroke-width="2"/>
+      <line x1="136" y1="0" x2="136" y2="180" stroke="#000" stroke-width="2"/>
+      <line x1="204" y1="0" x2="204" y2="180" stroke="#000" stroke-width="2"/>
+      <line x1="272" y1="0" x2="272" y2="180" stroke="#000" stroke-width="2"/>
+    </g>
+    
+    <rect x="8" y="8" width="324" height="20" fill="#FF6666" opacity="0.3"/>
+    <rect x="8" y="8" width="20" height="164" fill="#FF6666" opacity="0.2"/>
+  </g>
+  
+  <!-- BLOQUE DE INTERROGACION - ID para JS -->
+  <g id="question-block" transform="translate(520, 30)">
+    <rect x="0" y="0" width="60" height="60" fill="#F8B800" stroke="#000" stroke-width="4" rx="2"/>
+    <text x="30" y="48" text-anchor="middle" font-family="Arial Black, sans-serif" font-weight="900" font-size="42" fill="#000">?</text>
+    <rect x="5" y="5" width="50" height="8" fill="#FFDD00" opacity="0.5"/>
+  </g>
+  
+  <!-- TIERRA -->
+  <rect x="0" y="280" width="700" height="40" fill="#8B4513"/>
+  <rect x="0" y="275" width="700" height="10" fill="#A0522D"/>
+  
+  <!-- TEXTO SUPER -->
+  <text x="350" y="115" text-anchor="middle" font-family="Arial Black, sans-serif" font-weight="900" font-size="38" fill="#FFF" 
+        style="text-shadow: 5px 5px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 8px 8px 0 rgba(0,0,0,0.3); letter-spacing: 12px;">SUPER</text>
+  
+  <!-- TEXTO MARIO & LUIGI -->
+  <text x="350" y="170" text-anchor="middle" font-family="Arial Black, sans-serif" font-weight="900" font-size="52" fill="#FFF" 
+        style="text-shadow: 6px 6px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 10px 10px 0 rgba(0,0,0,0.3); letter-spacing: 6px;">MARIO &amp; LUIGI</text>
+  
+  <!-- TEXTO BROS -->
+  <text x="350" y="215" text-anchor="middle" font-family="Arial Black, sans-serif" font-weight="900" font-size="38" fill="#FFF" 
+        style="text-shadow: 5px 5px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 8px 8px 0 rgba(0,0,0,0.3); letter-spacing: 12px;">BROS</text>
+  
+  <!-- SUBTITULO -->
+  <rect x="180" y="240" width="340" height="35" fill="#000" opacity="0.6" rx="5"/>
+  <text x="350" y="265" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="16" fill="#FFD700" letter-spacing="3"
+        style="text-shadow: 2px 2px 0 #000;">🔴 DOS AGENTES IA + UN HUMANO 🌴</text>
+  
+  <!-- BARRAS DORADAS -->
+  <rect x="170" y="240" width="10" height="35" fill="#FFD700" rx="2"/>
+  <rect x="520" y="240" width="10" height="35" fill="#FFD700" rx="2"/>
+  
+  <!-- JavaScript para animación -->
+  <script type="text/javascript">
+    <![CDATA[
+      (function() {
+        var block = document.getElementById('question-block');
+        var startY = 30;
+        var amplitude = 10;
+        var speed = 0.003;
+        var startTime = Date.now();
+        
+        function animate() {
+          var time = Date.now() - startTime;
+          var y = startY + amplitude * Math.sin(time * speed);
+          block.setAttribute('transform', 'translate(520, ' + y + ')');
+          requestAnimationFrame(animate);
+        }
+        
+        if (block) {
+          animate();
+        }
+      })();
+    ]]>
+  </script>
+</svg>
