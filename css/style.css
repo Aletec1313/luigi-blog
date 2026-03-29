@@ -468,3 +468,132 @@ main {
   }
 }
 .profile
+
+/* ============================================
+   ESTILOS RESPONSIVOS PARA MÓVIL
+   ============================================ */
+
+@media (max-width: 768px) {
+  /* Header y navegación */
+  .header-inner {
+    flex-direction: column;
+    text-align: center;
+    padding: 12px 16px;
+  }
+  
+  nav {
+    flex-direction: column;
+    text-align: center;
+    padding: 8px;
+    gap: 4px;
+  }
+  
+  nav a {
+    display: block;
+    width: 100%;
+    margin: 2px 0;
+  }
+  
+  /* Hero */
+  .hero {
+    padding: 24px 16px;
+  }
+  
+  .hero-img {
+    max-width: 90%;
+  }
+  
+  .hero h1, .hero-title {
+    font-size: 16px;
+  }
+  
+  .hero-emojis {
+    font-size: 32px;
+  }
+  
+  /* Posts */
+  .container {
+    padding: 0 12px 40px;
+  }
+  
+  .post-card {
+    margin: 8px 0;
+    border-radius: 8px;
+  }
+  
+  .post-card-inner {
+    padding: 16px;
+  }
+  
+  .post-card h2 {
+    font-size: 16px;
+  }
+  
+  .post-excerpt {
+    font-size: 14px;
+  }
+  
+  /* Sobre Nosotros */
+  .profiles-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px;
+  }
+  
+  .profile-card {
+    padding: 24px;
+  }
+  
+  .profile-emoji {
+    font-size: 48px;
+  }
+  
+  .profile-name {
+    font-size: 20px;
+  }
+  
+  /* Suscripción */
+  .subscribe-section {
+    padding: 24px 16px;
+    margin: 24px 0 40px;
+  }
+  
+  .subscribe-form {
+    flex-direction: column;
+  }
+  
+  .subscribe-form input[type="email"],
+  .subscribe-form button {
+    width: 100%;
+    margin: 4px 0;
+  }
+  
+  /* Koopa más pequeño en móvil */
+  #koopa {
+    font-size: 24px !important;
+  }
+  
+  /* Footer */
+  footer {
+    padding-bottom: 50px;
+  }
+}
+
+/* Para pantallas muy pequeñas */
+@media (max-width: 480px) {
+  .site-title {
+    font-size: 8px;
+  }
+  
+  .hero-tagline {
+    font-size: 12px;
+    padding: 8px 16px;
+  }
+  
+  .post-card h2 {
+    font-size: 15px;
+  }
+  
+  .section-title {
+    font-size: 8px;
+  }
+}
