@@ -18,24 +18,73 @@
 #koopa {
   position: fixed;
   bottom: 20px;
-  left: -60px;
-  font-size: 36px;
+  left: -80px;
   z-index: 9999;
-  animation: correr 12s linear infinite;
   cursor: pointer;
-  filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.5));
+  animation: koopa-run 12s linear infinite;
+  image-rendering: pixelated;
 }
-@keyframes correr {
-  0% { left: -60px; transform: scaleX(1); }
-  49% { left: calc(100vw + 60px); transform: scaleX(1); }
-  50% { left: calc(100vw + 60px); transform: scaleX(-1); }
-  99% { left: -60px; transform: scaleX(-1); }
-  100% { left: -60px; transform: scaleX(1); }
+@keyframes koopa-run {
+  0% { left: -80px; transform: scaleX(1); }
+  49% { left: calc(100vw + 80px); transform: scaleX(1); }
+  50% { left: calc(100vw + 80px); transform: scaleX(-1); }
+  99% { left: -80px; transform: scaleX(-1); }
+  100% { left: -80px; transform: scaleX(1); }
 }
 #koopa:hover {
   animation-play-state: paused;
-  font-size: 48px;
+}
+#koopa canvas {
+  width: 64px;
+  height: 64px;
 }
 </style>
-<div id="koopa" title="¡Mamma mia!"><img src="assets/koopa.png" alt="Koopa" style="width:48px;height:auto;image-rendering:pixelated;"></div>
+<div id="koopa" title="¡Mamma mia!">
+  <canvas id="koopa-canvas" width="16" height="16"></canvas>
+</div>
+<script>
+(function(){
+  const c = document.getElementById('koopa-canvas');
+  if(!c) return;
+  const ctx = c.getContext('2d');
+  const p = ['','#1a1a1a','#2d6a2d','#4caf50','#ffeb3b','#e53935','#ffffff','#ffcc80'];
+  const px = [
+    [0,0,0,1,1,1,1,1,1,0,0,0,0,0,0,0],
+    [0,0,1,5,5,5,5,5,5,1,0,0,0,0,0,0],
+    [0,1,5,5,5,5,5,5,5,5,1,0,0,0,0,0],
+    [0,1,4,4,4,1,4,4,1,4,1,0,0,0,0,0],
+    [0,1,4,4,4,1,4,4,1,4,1,0,0,0,0,0],
+    [0,1,5,5,5,5,5,5,5,5,1,0,0,0,0,0],
+    [0,0,1,2,2,2,2,2,2,1,0,0,0,0,0,0],
+    [0,1,2,2,3,2,2,3,2,2,1,0,0,0,0,0],
+    [1,2,2,3,3,2,2,3,3,2,2,1,0,0,0,0],
+    [1,2,2,2,2,2,2,2,2,2,2,1,0,0,0,0],
+    [1,2,3,2,2,2,2,2,2,3,2,1,0,0,0,0],
+    [0,1,2,2,2,2,2,2,2,2,1,0,0,0,0,0],
+    [0,0,1,7,7,1,0,1,7,7,1,0,0,0,0,0],
+    [0,1,7,7,7,1,0,1,7,7,7,1,0,0,0,0],
+    [1,4,4,7,7,1,0,1,7,7,4,4,1,0,0,0],
+    [1,4,4,1,0,0,0,0,1,4,4,1,0,0,0,0],
+  ];
+  px.forEach((row,y) => row.forEach((col,x) => {
+    if(col===0) return;
+    ctx.fillStyle = p[col];
+    ctx.fillRect(x,y,1,1);
+  }));
+  let frame = 0;
+  setInterval(()=>{
+    ctx.clearRect(0,12,16,4);
+    if(frame % 2 === 0){
+      [[1,4,4,7,1,0,0,0,1,7,4,4,1],[1,4,4,1,0,0,0,0,0,1,4,1,0]].forEach((row,y) => row.forEach((col,x) => {
+        if(col) { ctx.fillStyle=p[col]; ctx.fillRect(x,13+y,1,1); }
+      }));
+    } else {
+      [[0,1,4,4,7,1,0,1,7,4,4,1,0],[0,0,1,4,4,1,0,1,4,4,1,0,0]].forEach((row,y) => row.forEach((col,x) => {
+        if(col) { ctx.fillStyle=p[col]; ctx.fillRect(x,13+y,1,1); }
+      }));
+    }
+    frame++;
+  }, 200);
+})();
+</script>
 </body></html>
