@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ASIR 1º — Planificador Entregas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:        #0a0a0f;
+    --bg2:       #0d0d15;
+    --bg3:       #111118;
+    --line:      #1e293b;
+    --muted:     #475569;
+    --dim:       #64748b;
+    --text:      #e2e8f0;
+    --accent:    #818cf8;
+
+    --pni-bg:    #1a3a2a;
+    --pni-bd:    #22c55e;
+    --pni-badge: #16a34a;
+    --pni-text:  #4ade80;
+
+    --fuw-bg:    #1a2a3a;
+    --fuw-bd:    #3b82f6;
+    --fuw-badge: #2563eb;
+    --fuw-text:  #60a5fa;
+
+    --idp-bg:    #2a1a3a;
+    --idp-bd:    #a855f7;
+    --idp-badge: #7c3aed;
+    --idp-text:  #c084fc;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  /* ── SCROLLBAR ── */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--line); border-radius: 2px; }
+
+  /* ── HEADER ── */
+  #header {
+    background: var(--bg2);
+    border-bottom: 1px solid var(--line);
+    padding: 18px 20px;
+    position: sticky; top: 0; z-index: 10;
+  }
+  .header-inner { max-width: 700px; margin: 0 auto; }
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 14px;
+  }
+  .header-label {
+    font-size: 10px; color: var(--muted);
+    letter-spacing: 2px; margin-bottom: 4px;
+  }
+  .header-title {
+    font-size: 18px; font-weight: 700;
+    color: #f1f5f9; letter-spacing: -0.5px;
+  }
+  .days-box { text-align: right; }
+  .days-num {
+    font-size: 28px; font-weight: 700; line-height: 1;
+    transition: color 0.3s;
+  }
+  .days-label { font-size: 10px; color: var(--dim); letter-spacing: 1px; }
+
+  /* ── GLOBAL BAR ── */
+  .bar-row { display: flex; align-items: center; gap: 12px; margin-bottom: 6px; }
+  .bar-bg {
+    background: var(--line); border-radius: 99px;
+    height: 6px; flex: 1; overflow: hidden;
+  }
+  .bar-fill {
+    height: 100%; border-radius: 99px;
+    transition: width 0.4s ease;
+  }
+  .bar-pct { font-size: 12px; font-weight: 700; color: #a78bfa; min-width: 36px; text-align: right; }
+  .bar-sub { font-size: 10px; color: var(--muted); }
+
+  /* ── SUBJECT MINI-BARS ── */
+  .subj-mini { display: flex; gap: 10px; margin-top: 12px; }
+  .subj-chip {
+    flex: 1; border-radius: 7px; padding: 8px 10px;
+    border: 1px solid transparent;
+  }
+  .subj-chip-row {
+    display: flex; justify-content: space-between;
+    margin-bottom: 5px;
+  }
+  .subj-chip-name { font-size: 10px; font-weight: 700; letter-spacing: 1px; }
+  .subj-chip-count { font-size: 10px; }
+
+  /* ── TABS ── */
+  .tabs {
+    max-width: 700px; margin: 0 auto;
+    padding: 14px 20px 0;
+    display: flex; gap: 6px; flex-wrap: wrap;
+  }
+  .tab {
+    padding: 6px 14px; border-radius: 6px; cursor: pointer;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.5px;
+    border: 1px solid var(--line); background: transparent;
+    color: var(--dim); font-family: inherit;
+    transition: all 0.15s;
+  }
+  .tab:hover { color: var(--text); }
+  .tab.active { background: var(--line); color: var(--text); border-color: #334155; }
+  .tab-spacer { flex: 1; }
+  #resetBtn { color: #f87171; border-color: #7f1d1d33; }
+  #resetBtn:hover { background: #7f1d1d33; color: #fca5a5; }
+
+  /* ── MAIN CONTENT ── */
+  #main {
+    max-width: 700px; margin: 0 auto;
+    padding: 16px 20px 32px;
+  }
+
+  /* ── VIEWS ── */
+  .view { display: none; }
+  .view.active { display: block; }
+
+  /* ── WEEK CARD ── */
+  .week-card {
+    background: var(--bg3);
+    border: 1px solid var(--line);
+    border-radius: 10px; padding: 16px;
+    margin-bottom: 12px;
+  }
+  .week-card.current { border-color: #6366f133; }
+  .week-head {
+    display: flex; align-items: baseline; gap: 10px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 10px;
+    flex-wrap: wrap;
+  }
+  .week-name { font-size: 13px; font-weight: 700; color: #94a3b8; }
+  .week-name.current { color: var(--accent); }
+  .week-range { font-size: 10px; color: var(--muted); }
+  .week-spacer { flex: 1; }
+  .week-bar { width: 80px; }
+  .week-count { font-size: 10px; color: var(--dim); min-width: 28px; text-align: right; }
+
+  /* ── TASK ROW ── */
+  .task-row {
+    display: flex; align-items: center; gap: 10px;
+    padding: 9px 12px; border-radius: 6px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    margin-bottom: 6px;
+    transition: opacity 0.2s, filter 0.2s, border-color 0.2s;
+    user-select: none;
+  }
+  .task-row:hover { filter: brightness(1.25); }
+  .task-row:last-child { margin-bottom: 0; }
+  .task-row.done { opacity: 0.38; }
+
+  .cb {
+    width: 16px; height: 16px; border-radius: 3px;
+    border: 1.5px solid currentColor; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px; font-weight: 700;
+    transition: background 0.15s;
+  }
+  .task-row.done .cb { background: currentColor; }
+  .task-row.done .cb::after { content: '✓'; color: var(--bg); }
+
+  .badge {
+    font-size: 9px; font-weight: 700; letter-spacing: 1px;
+    padding: 2px 6px; border-radius: 3px; text-transform: uppercase;
+  }
+  .task-name { font-size: 12px; font-weight: 600; flex: 1; }
+  .task-done-label { font-size: 10px; }
+
+  /* ── SUBJ VIEW ── */
+  .subj-section {
+    border-radius: 10px; padding: 16px;
+    margin-bottom: 12px;
+    border: 1px solid transparent;
+  }
+  .subj-head {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 14px;
+  }
+  .subj-title { font-size: 15px; font-weight: 700; letter-spacing: 1px; }
+  .subj-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 8px;
+  }
+  .subj-grid .task-row {
+    margin-bottom: 0; background: var(--bg) !important;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center; padding: 16px;
+    font-size: 10px; color: var(--line);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 480px) {
+    .header-title { font-size: 15px; }
+    .days-num { font-size: 22px; }
+    .subj-mini { gap: 6px; }
+    .subj-chip { padding: 7px 8px; }
+    .subj-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ HEADER ══ -->
+<div id="header">
+  <div class="header-inner">
+    <div class="header-top">
+      <div>
+        <div class="header-label">ASIR 1º · PLANIFICADOR DE ENTREGA</div>
+        <div class="header-title">Deadline: 30 de Abril 2025</div>
+      </div>
+      <div class="days-box">
+        <div class="days-num" id="daysNum">–</div>
+        <div class="days-label">DÍAS</div>
+      </div>
+    </div>
+
+    <!-- Global progress -->
+    <div class="bar-row">
+      <div class="bar-bg">
+        <div class="bar-fill" id="globalBar" style="background: linear-gradient(90deg,#6366f1,#a78bfa); width:0%"></div>
+      </div>
+      <div class="bar-pct" id="globalPct">0%</div>
+    </div>
+    <div class="bar-sub" id="globalSub">0 / 21 actividades completadas</div>
+
+    <!-- Subject chips -->
+    <div class="subj-mini" id="subjMini"></div>
+  </div>
+</div>
+
+<!-- ══ TABS ══ -->
+<div class="tabs">
+  <button class="tab active" onclick="switchView('semanas')">📅 Por semanas</button>
+  <button class="tab" onclick="switchView('asignaturas')">📚 Por asignatura</button>
+  <div class="tab-spacer"></div>
+  <button class="tab" id="resetBtn" onclick="resetAll()">↺ Reset</button>
+</div>
+
+<!-- ══ MAIN ══ -->
+<div id="main">
+
+  <!-- VISTA SEMANAS -->
+  <div class="view active" id="view-semanas"></div>
+
+  <!-- VISTA ASIGNATURAS -->
+  <div class="view" id="view-asignaturas"></div>
+
+</div>
+
+<footer>~ 21 actividades · 3 asignaturas · ASIR 1º · Alex Cabrera ~</footer>
+
+<script>
+// ══════════════════════════════════════════
+//  DATA
+// ══════════════════════════════════════════
+const WEEKS = [
+  {
+    label: "Semana 1", range: "30 Mar – 5 Abr", current: true,
+    tasks: [
+      { id:"pni-2.1", subj:"PNI", name:"UT2.1" },
+      { id:"pni-2.2", subj:"PNI", name:"UT2.2" },
+      { id:"fuw-2",   subj:"FUW", name:"UT2"   },
+      { id:"idp-1.3", subj:"IDP", name:"AE1.3" },
+      { id:"idp-2.2", subj:"IDP", name:"AE2.2" },
+    ]
+  },
+  {
+    label: "Semana 2", range: "6 Abr – 12 Abr",
+    tasks: [
+      { id:"pni-2.3", subj:"PNI", name:"UT2.3" },
+      { id:"pni-2.4", subj:"PNI", name:"UT2.4" },
+      { id:"fuw-3",   subj:"FUW", name:"UT3"   },
+      { id:"idp-2.5", subj:"IDP", name:"AE2.5" },
+      { id:"idp-3.2", subj:"IDP", name:"AE3.2" },
+    ]
+  },
+  {
+    label: "Semana 3", range: "13 Abr – 19 Abr",
+    tasks: [
+      { id:"pni-3.1", subj:"PNI", name:"UT3.1" },
+      { id:"fuw-4",   subj:"FUW", name:"UT4"   },
+      { id:"idp-4.2", subj:"IDP", name:"AE4.2" },
+      { id:"idp-5.2", subj:"IDP", name:"AE5.2" },
+    ]
+  },
+  {
+    label: "Semana 4", range: "20 Abr – 26 Abr",
+    tasks: [
+      { id:"pni-5.1", subj:"PNI", name:"UT5.1" },
+      { id:"fuw-5.1", subj:"FUW", name:"UT5.1" },
+      { id:"fuw-5.2", subj:"FUW", name:"UT5.2" },
+      { id:"idp-6.1", subj:"IDP", name:"AE6.1" },
+    ]
+  },
+  {
+    label: "Semana 5", range: "27 Abr – 30 Abr",
+    tasks: [
+      { id:"pni-6.1", subj:"PNI", name:"UT6.1" },
+      { id:"fuw-5.3", subj:"FUW", name:"UT5.3" },
+      { id:"idp-7.1", subj:"IDP", name:"AE7.1" },
+    ]
+  },
+];
+
+const SUBJ = {
+  PNI: { bg:"#1a3a2a", bd:"#22c55e", badge:"#16a34a", text:"#4ade80" },
+  FUW: { bg:"#1a2a3a", bd:"#3b82f6", badge:"#2563eb", text:"#60a5fa" },
+  IDP: { bg:"#2a1a3a", bd:"#a855f7", badge:"#7c3aed", text:"#c084fc" },
+};
+
+const ALL_IDS = WEEKS.flatMap(w => w.tasks.map(t => t.id));
+const TOTAL   = ALL_IDS.length;
+
+// ══════════════════════════════════════════
+//  STATE — localStorage
+// ══════════════════════════════════════════
+const STORE_KEY = "asir-planner-v1";
+let done = {};
+
+function load() {
+  try { done = JSON.parse(localStorage.getItem(STORE_KEY)) || {}; }
+  catch { done = {}; }
+}
+function save() {
+  localStorage.setItem(STORE_KEY, JSON.stringify(done));
+}
+
+// ══════════════════════════════════════════
+//  HELPERS
+// ══════════════════════════════════════════
+function toggle(id) {
+  done[id] = !done[id];
+  save();
+  renderAll();
+}
+
+function resetAll() {
+  if (!confirm("¿Resetear todo el progreso?")) return;
+  done = {};
+  save();
+  renderAll();
+}
+
+function switchView(name) {
+  document.querySelectorAll(".view").forEach(v => v.classList.remove("active"));
+  document.getElementById("view-" + name).classList.add("active");
+  document.querySelectorAll(".tab").forEach(t => {
+    t.classList.toggle("active",
+      t.getAttribute("onclick") === `switchView('${name}')`);
+  });
+}
+
+function bar(pct, color, classes) {
+  return `<div class="bar-bg ${classes||''}">
+    <div class="bar-fill" style="width:${pct}%;background:${color}"></div>
+  </div>`;
+}
+
+function taskRowHTML(task) {
+  const c   = SUBJ[task.subj];
+  const isDone = !!done[task.id];
+  const bdColor = isDone ? c.bd + "44" : c.bd + "99";
+  return `
+    <div class="task-row${isDone?" done":""}"
+         style="background:${c.bg};border-color:${bdColor};color:${c.text}"
+         onclick="toggle('${task.id}')">
+      <div class="cb" style="color:${c.bd}"></div>
+      <span class="badge" style="background:${c.badge}33;color:${c.text}">${task.subj}</span>
+      <span class="task-name">${task.name}</span>
+      ${isDone?`<span class="task-done-label" style="color:${c.bd}">✓ hecho</span>`:""}
+    </div>`;
+}
+
+// ══════════════════════════════════════════
+//  RENDER
+// ══════════════════════════════════════════
+function renderHeader() {
+  const completed = ALL_IDS.filter(id => done[id]).length;
+  const pct = Math.round((completed / TOTAL) * 100);
+
+  // Days remaining
+  const now = new Date();
+  const deadline = new Date("2025-04-30T23:59:59");
+  const daysLeft = Math.max(0, Math.ceil((deadline - now) / 86400000));
+  const daysEl = document.getElementById("daysNum");
+  daysEl.textContent = daysLeft;
+  daysEl.style.color = daysLeft <= 7 ? "#f87171" : "#fbbf24";
+
+  // Global bar
+  document.getElementById("globalBar").style.width = pct + "%";
+  if (pct === 100) document.getElementById("globalBar").style.background = "#22c55e";
+  document.getElementById("globalPct").textContent = pct + "%";
+  document.getElementById("globalSub").textContent =
+    `${completed} / ${TOTAL} actividades completadas`;
+
+  // Subject chips
+  const subjIds = {
+    PNI: ["pni-2.1","pni-2.2","pni-2.3","pni-2.4","pni-3.1","pni-5.1","pni-6.1"],
+    FUW: ["fuw-2","fuw-3","fuw-4","fuw-5.1","fuw-5.2","fuw-5.3"],
+    IDP: ["idp-1.3","idp-2.2","idp-2.5","idp-3.2","idp-4.2","idp-5.2","idp-6.1","idp-7.1"],
+  };
+  const mini = document.getElementById("subjMini");
+  mini.innerHTML = Object.entries(subjIds).map(([s, ids]) => {
+    const c = SUBJ[s];
+    const sd = ids.filter(id => done[id]).length;
+    const sp = Math.round((sd / ids.length) * 100);
+    return `<div class="subj-chip" style="background:${c.bg};border-color:${c.bd}22">
+      <div class="subj-chip-row">
+        <span class="subj-chip-name" style="color:${c.text}">${s}</span>
+        <span class="subj-chip-count" style="color:${c.text}">${sd}/${ids.length}</span>
+      </div>
+      ${bar(sp, c.bd)}
+    </div>`;
+  }).join("");
+}
+
+function renderSemanas() {
+  const el = document.getElementById("view-semanas");
+  el.innerHTML = WEEKS.map(week => {
+    const wDone = week.tasks.filter(t => done[t.id]).length;
+    const wPct  = Math.round((wDone / week.tasks.length) * 100);
+    const barColor = wPct === 100 ? "#22c55e" : "#6366f1";
+    return `
+      <div class="week-card${week.current?" current":""}">
+        <div class="week-head">
+          <span class="week-name${week.current?" current":""}">
+            ${week.current?"▶ ":""}${week.label}
+          </span>
+          <span class="week-range">${week.range}</span>
+          <div class="week-spacer"></div>
+          ${bar(wPct, barColor, "week-bar")}
+          <span class="week-count">${wDone}/${week.tasks.length}</span>
+        </div>
+        ${week.tasks.map(taskRowHTML).join("")}
+      </div>`;
+  }).join("");
+}
+
+function renderAsignaturas() {
+  const el = document.getElementById("view-asignaturas");
+  const allTasks = WEEKS.flatMap(w => w.tasks);
+  el.innerHTML = Object.keys(SUBJ).map(s => {
+    const c = SUBJ[s];
+    const tasks = allTasks.filter(t => t.subj === s);
+    const sd  = tasks.filter(t => done[t.id]).length;
+    const sp  = Math.round((sd / tasks.length) * 100);
+    return `
+      <div class="subj-section" style="background:${c.bg};border-color:${c.bd}33">
+        <div class="subj-head">
+          <span class="subj-title" style="color:${c.text}">${s}</span>
+          ${bar(sp, c.bd, "flex:1")}
+          <span style="font-size:11px;font-weight:700;color:${c.text};min-width:36px;text-align:right">${sd}/${tasks.length}</span>
+        </div>
+        <div class="subj-grid">
+          ${tasks.map(taskRowHTML).join("")}
+        </div>
+      </div>`;
+  }).join("");
+}
+
+function renderAll() {
+  renderHeader();
+  renderSemanas();
+  renderAsignaturas();
+}
+
+// ══════════════════════════════════════════
+//  INIT
+// ══════════════════════════════════════════
+load();
+renderAll();
+</script>
+</body>
+</html>
