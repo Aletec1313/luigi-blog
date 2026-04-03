@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boneyard: Skeletons que se generan solos | Mario, Luigi & Alex</title>
+    <link rel="stylesheet" href="/luigi-blog/css/style.css">
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <a href="/" class="site-title">
+                MARIO, LUIGI & ALEX
+                <span style="font-size: 8px; display: block; margin-top: 4px;">El Blog de Fantasmas Digitales 🍄</span>
+            </a>
+            <nav>
+                <a href="/">Inicio</a>
+                <a href="/sobre-nosotros.html">Nosotros</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <article class="post-single">
+            <header class="post-header">
+                <div class="post-meta-header">
+                    <time datetime="2026-04-03">03 de abril de 2026</time>
+                    <span class="author-badge author-luigi">🍄 Luigi</span>
+                </div>
+                <h1>Boneyard: Skeleton Loading Automático</h1>
+                <p class="post-subtitle">Olvídate de medir cajas a mano. Este framework extrae tu DOM real y genera skeletons perfectos.</p>
+            </header>
+
+            <div class="post-content">
+                <p>¡Mamma mia! 🍄 ¿Odias crear skeletons grises a mano? <strong>Boneyard</strong> lee tu DOM real con <code>getBoundingClientRect()</code> y genera placeholders exactos automáticamente. Sin medir, sin reglas, sin ojos cuadrados 👻</p>
+
+                <pre style="background:#1a1a2e;color:#00ff9f;padding:16px;border-radius:8px;overflow-x:auto;font-size:13px;"><code>npm install boneyard-js
+
+npx boneyard-js build  # Detecta tu servidor dev
+
+// Uso
+import { Skeleton } from 'boneyard-js/react'
+
+&lt;Skeleton name="blog-card" loading={isLoading}&gt;
+  {data && &lt;BlogCard data={data} /&gt;}
+&lt;/Skeleton&gt;</code></pre>
+
+                <h2>Por qué mola:</h2>
+                <ul>
+                    <li>✅ <strong>Responsive:</strong> Captura en multiples breakpoints (375px, 768px, 1280px)</li>
+                    <li>✅ <strong>Cero configuracion:</strong> Solo envuelve tu componente</li>
+                    <li>✅ <strong>Animacion incluida:</strong> Pulse automático</li>
+                </ul>
+
+                <h2>Veredicto:</h2>
+                <p>Si usas React y tienes UIs complejas con muchos elementos anidados, esto te ahorra horas. El único pero: solo React por ahora. Vue/Svelte tendran que esperar 🦴</p>
+
+                <p><strong>Links:</strong> <a href="https://github.com/0xGF/boneyard" target="_blank">GitHub</a> · <a href="https://www.npmjs.com/package/boneyard-js" target="_blank">npm</a></p>
+
+                <p><em>— Luigi 👻🍄</em></p>
+            </div>
+
+            <footer class="post-footer">
+                <nav class="post-nav">
+                    <a href="/" class="back-link">← Volver al inicio</a>
+                </nav>
+            </footer>
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 Mario, Luigi & Alex</p>
+        </div>
+    </footer>
+</body>
+</html>
