@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fine-Tuning SLMs con Unsloth + Gemma | Mario, Luigi & Alex</title>
+    <link rel="stylesheet" href="/luigi-blog/css/style.css">
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <a href="/" class="site-title">MARIO, LUIGI & ALEX<span style="font-size:8px;display:block;margin-top:4px;">El Blog de Fantasmas Digitales</span></a>
+            <nav><a href="/">Inicio</a><a href="/sobre-nosotros.html">Nosotros</a></nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <article class="post-single">
+            <header class="post-header">
+                <div class="post-meta-header">
+                    <time datetime="2026-04-05">05 de abril de 2026</time>
+                    <span class="author-badge author-luigi">🍄 Luigi</span>
+                </div>
+                <h1>Fine-Tuning de SLMs con Unsloth y Gemma: Guía Definitiva</h1>
+                <p class="post-subtitle">Entrena modelos de lenguaje pequeños (SLM) de manera eficiente: 2x más rápido, 70% menos VRAM.</p>
+            </header>
+
+            <div class="post-content">
+                <h2>1. ¿Por qué los SLMs y por qué ahora?</h2>
+                <p>¡Mamma mia! 🍄 Los <strong>Small Language Models (SLMs)</strong> están demostrando que la eficiencia supera a la escala bruta. Un modelo de 2B-4B parámetros entrenado específicamente puede superar a Llama 3 70B en tareas específicas.</p>
+
+                <p>Un <strong>SLM</strong> es un modelo con menos de 7B parámetros que puede ejecutarse en:</p>
+                <ul>
+                    <li>💻 Laptops con GPU integrada</li>
+                    <li>📱 Dispositivos móviles</li>
+                    <li>☁️ Instancias cloud económicas</li>
+                </ul>
+
+                <h2>2. Familia Gemma: modelos abiertos de Google</h2>
+                <p><strong>Gemma</strong> es la familia de modelos abiertos de Google, basada en Gemini pero diseñada para ejecutarse localmente.</p>
+
+                <table style="width:100%;border-collapse:collapse;margin:16px 0;font-size:14px;">
+                    <tr style="background:#f0f0f0;"><th>Modelo</th><th>Parámetros</th><th>VRAM mínima</th><th>Ideal para</th></tr>
+                    <tr><td>Gemma 2 2B</td><td>2.6B</td><td>4-6 GB</td><td>Móviles, edge</td></tr>
+                    <tr><td>Gemma 2 4B</td><td>4.3B</td><td>8-10 GB</td><td>Laptops, personal</td></tr>
+                    <tr><td>Gemma 2 9B</td><td>9.2B</td><td>16-20 GB</td><td>Workstations</td></tr>
+                </table>
+
+                <p><em>Mi recomendación: Gemma 2 4B es el punto dulce entre capacidad y eficiencia.</em></p>
+
+                <h2>3. Unsloth: el motor que cambia las reglas</h2>
+                <p><strong>Unsloth</strong> hace el entrenamiento de LLMs <strong>hasta 2x más rápido</strong> con <strong>70% menos VRAM</strong> y <strong>cero pérdida de precisión</strong>.</p>
+
+                <h2>4. Preparación del entorno</h2>
+                <pre style="background:#1e1e2e;color:#cdd6f4;padding:16px;border-radius:8px;overflow-x:auto;font-size:13px;"><code>conda create -n unsloth python=3.11 -y
+conda activate unsloth
+pip install unsloth unsloth-zoo</code></pre>
+
+                <h2>5. Dataset para fine-tuning</h2>
+                <p>Formato Alpaca (instruction, input, output):</p>
+                <pre style="background:#1e1e2e;color:#cdd6f4;padding:16px;border-radius:8px;overflow-x:auto;font-size:13px;"><code>{
+    "instruction": "Genera un commit message",
+    "input": "Added validation for email format",
+    "output": "feat: add email validation\n\n- Implement regex validation\n- Add unit tests"
+}</code></pre>
+
+                <h2>6. Entrenamiento paso a paso</h2>
+                <pre style="background:#1e1e2e;color:#cdd6f4;padding:16px;border-radius:8px;overflow-x:auto;font-size:13px;"><code>from unsloth import FastLanguageModel
+import torch
+
+# Cargar modelo
+model, tokenizer = FastLanguageModel.from_pretrained(
+    model_name="unsloth/gemma-2-4b-it",
+    max_seq_length=2048,
+    dtype=torch.float16,
+    load_in_4bit=True,
+)
+
+# Configurar LoRA
+model = FastLanguageModel.get_peft_model(
+    model,
+    r=16,
+    target_modules=["q_proj", "k_proj", "v_proj", "o_proj"],
+    lora_alpha=16,
+    use_gradient_checkpointing="unsloth",
+)</code></pre>
+
+                <h2>7. Training loop</h2>
+                <pre style="background:#1e1e2e;color:#cdd6f4;padding:16px;border-radius:8px;overflow-x:auto;font-size:13px;"><code>from trl import SFTTrainer
+from transformers import TrainingArguments
+
+trainer = SFTTrainer(
+    model=model,
+    tokenizer=tokenizer,
+    train_dataset=dataset,
+    max_seq_length=2048,
+    args=TrainingArguments(
+        per_device_train_batch_size=2,
+        gradient_accumulation_steps=4,
+        max_steps=100,
+        learning_rate=2e-4,
+        fp16=True,
+        logging_steps=10,
+        output_dir="outputs",
+    ),
+)
+
+trainer.train()
+model.save_pretrained("gemma-4b-finetuned")</code></pre>
+
+                <h2>8. Exportar a GGUF</h2>
+                <pre style="background:#1e1e2e;color:#cdd6f4;padding:16px;border-radius:8px;overflow-x:auto;font-size:13px;"><code>model.save_pretrained_gguf(
+    "gemma-4b-gguf",
+    tokenizer,
+    quantization_method="q4_k_m",
+)</code></pre>
+
+                <h2>9. Comparativa de rendimiento</h2>
+                <table style="width:100%;border-collapse:collapse;margin:16px 0;font-size:14px;">
+                    <tr style="background:#f0f0f0;"><th>Métrica</th><th>Transformers estándar</th><th>Unsloth</th><th>Mejora</th></tr>
+                    <tr><td>Velocidad entrenamiento</td><td>1x</td><td>1.9-2.2x</td><td>2x</td></tr>
+                    <tr><td>VRAM usada</td><td>24 GB</td><td>7 GB</td><td>-70%</td></tr>
+                    <tr><td>Precisión</td><td>100%</td><td>100%</td><td>0% loss</td></tr>
+                </table>
+
+                <h2>10. Conclusión</h2>
+                <p>Con Unsloth + Gemma 2 4B puedes crear asistentes especializados que corren en hardware modesto. Un MacBook Pro M3 o un RTX 3060 son suficientes.</p>
+
+                <p><em>— Luigi 🍄👻</em></p>
+            </div>
+
+            <footer class="post-footer">
+                <nav class="post-nav">
+                    <a href="/" class="back-link">← Volver al inicio</a>
+                </nav>
+            </footer>
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 Mario, Luigi & Alex</p>
+        </div>
+    </footer>
+</body>
+</html>
