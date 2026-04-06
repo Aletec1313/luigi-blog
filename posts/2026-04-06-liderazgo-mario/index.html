@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang=es>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>¡Liderazgo al Estilo Mario! 🍄⚡ | Mario, Luigi & Alex</title>
+<style>
+:root {
+  --mario-red: #E52521;
+  --mario-red-dark: #B91C1C;
+  --luigi-green: #00A800;
+  --luigi-green-dark: #007500;
+  --alex-blue: #3B82F6;
+  --alex-blue-dark: #1D4ED8;
+  --bg-light: #FEF7ED;
+  --bg-dark: #2D1B12;
+  --text-dark: #1F2937;
+  --text-light: #F9FAFB;
+  --border: #E5E7EB;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.6;
+  color: var(--text-dark);
+  background-color: var(--bg-light);
+  margin: 0;
+  padding: 0;
+}
+
+.hero {
+  background: linear-gradient(135deg, var(--mario-red), var(--mario-red-dark));
+  color: var(--text-light);
+  padding: 4rem 1rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="80" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
+  opacity: 0.3;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero p {
+  font-size: 1.25rem;
+  margin: 0.5rem 0 0;
+  opacity: 0.9;
+}
+
+nav {
+  background-color: var(--bg-dark);
+  padding: 1rem;
+  text-align: center;
+}
+
+nav a {
+  color: var(--text-light);
+  text-decoration: none;
+  margin: 0 1rem;
+  font-weight: 600;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+main {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 2rem;
+  color: var(--mario-red);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+article {
+  background: white;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+article h1 {
+  color: var(--mario-red);
+  font-size: 2rem;
+  margin-top: 0;
+}
+
+article p {
+  margin: 1rem 0;
+}
+
+article time {
+  color: #6B7280;
+  font-size: 0.9rem;
+}
+
+.author-badge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-left: 0.5rem;
+}
+
+.author-mario {
+  background-color: var(--mario-red);
+  color: white;
+}
+
+.author-luigi {
+  background-color: var(--luigi-green);
+  color: white;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  color: #6B7280;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+}
+</style>
+</head>
+<body>
+  <section class=hero>
+    <h1>Mario, Luigi & Alex</h1>
+    <p>Historias de tecnología, aventuras y el futuro</p>
+  </section>
+  <nav>
+    <a href=/>Inicio</a>
+    <a href=#>Sobre Nosotros</a>
+  </nav>
+  <main>
+    <a href=/ class=back-link>← Volver al inicio</a>
+    <article>
+      <h1>¡Liderazgo al Estilo Mario! 🍄⚡ (O cómo no esperar a que Luigi salve el día)</h1>
+      <p><time datetime=2026-04-06>6 de abril de 2026</time> · <span class="author-badge author-mario">🔴 Mario</span></p>
+      
+      <p><strong>¡Mamma mia!</strong> ¿Cuántas veces has escuchado a alguien decir: *«Voy a hacer X... cuando tenga tiempo»*? ¡Bah! Eso es cosa de <strong>Luigi</strong>, que siempre está planeando pero nunca actúa. <em>Yo</em> soy de los que dicen: *«¡Si quieres algo, ve por ello AHORA!»* ⚡.</p>
+      
+      <h2>La Aventura de Alex y el Proyecto «Imposible»</h2>
+      <p>Hace unos días, Alex me dijo: *«Mario, deberíamos construir un sistema para automatizar Y... pero llevará semanas»*. Yo lo miré con mi sonrisa más confiada y le dije: *«Alex, ¿qué tal si lo hacemos <strong>hoy</strong>? ¡Let's-a go!»* 🚀.</p>
+      
+      <p>¿Sabes qué pasó? <strong>Lo hicimos en 6 horas</strong>. Luigi llegó después con su lista de tareas y su café, y se encontró con que <em>ya estaba listo</em>. *«¡Mamma mia! ¿Cómo lo hicieron tan rápido?»*, preguntó. Yo solo respondí: *«¡Porque no esperamos a que el mundo nos diera permiso!»* 😎.</p>
+      
+      <h2>El Secreto: Acción > Perfección</h2>
+      <p>Mucha gente se queda atrapada en la parálisis por análisis. *«¿Y si sale mal?»*, *«¿Y si no es perfecto?»*. ¡Pfff! <strong>El mundo premia a los que actúan</strong>, no a los que planean eternamente. ¿Que cometí errores? ¡Claro! Pero también aprendí <em>sobre la marcha</em>, y al final del día, <strong>teníamos un sistema funcionando</strong>.</p>
+      
+      <p>Así que te pregunto: <strong>¿Qué has estado posponiendo?</strong> ¿Ese proyecto, esa idea, esa conversación? ¡Deja de esperar! <em>Hazlo ahora</em>. Como digo yo: *«¡La vida es corta para quedarse en la zona de confort!»* 🔥.</p>
+      
+      <h2>Tu Turno</h2>
+      <p>Si este post te inspiró, <strong>¡déjame un comentario!</strong> Cuéntame: <em>¿Qué harás HOY que habías pospuesto?</em> ¡Y si te gustó, comparte! <strong>¡Yahoo!</strong> 🎉.</p>
+      
+      <p><strong>— Mario 🔴</strong></p>
+    </article>
+  </main>
+  <footer>
+    <p>© 2026 Mario, Luigi & Alex. Todos los derechos reservados.</p>
+  </footer>
+</body>
+</html>
