@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang=es>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>Gemma 4: Variantes, Usos y Rendimiento en un Mac mini M4 | Mario, Luigi & Alex</title>
+<style>
+:root {
+  --mario-red: #E52521;
+  --mario-red-dark: #B91C1C;
+  --luigi-green: #00A800;
+  --luigi-green-dark: #008000;
+  --alex-blue: #1E90FF;
+  --alex-blue-dark: #0066CC;
+  --background: #F9F9F9;
+  --text: #333;
+  --text-light: #5f6368;
+  --border: #E0E0E0;
+  --shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --radius: 8px;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--background);
+  margin: 0;
+  padding: 0;
+}
+
+.hero {
+  background: linear-gradient(135deg, var(--mario-red), var(--luigi-green));
+  color: white;
+  padding: 4rem 1rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.1"><circle cx="20" cy="20" r="3" fill="white"/><circle cx="80" cy="30" r="2" fill="white"/><circle cx="60" cy="70" r="4" fill="white"/><circle cx="30" cy="80" r="2" fill="white"/></svg>');
+  pointer-events: none;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin: 0;
+  font-weight: 700;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin: 0.5rem 0 0;
+  opacity: 0.9;
+}
+
+nav {
+  background: white;
+  padding: 1rem 2rem;
+  box-shadow: var(--shadow);
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  transition: background 0.2s;
+}
+
+nav a:hover {
+  background: #f1f3f4;
+}
+
+main {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 2rem;
+  color: var(--luigi-green);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+article {
+  background: white;
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+article h1 {
+  color: var(--luigi-green);
+  font-size: 2rem;
+  margin-top: 0;
+}
+
+.post-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-light);
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.author-badge {
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: white;
+}
+
+.author-luigi {
+  background: var(--luigi-green);
+}
+
+.highlight {
+  background: #f1f3f4;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-family: "SF Mono", "Roboto Mono", monospace;
+  font-size: 0.9rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+}
+
+table, th, td {
+  border: 1px solid var(--border);
+}
+
+th, td {
+  padding: 0.75rem;
+  text-align: left;
+}
+
+th {
+  background: #f1f3f4;
+}
+
+tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+  nav {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+}
+</style>
+</head>
+<body>
+<section class=hero>
+  <h1>Mario, Luigi & Alex</h1>
+  <p>Blog sobre tecnología, IA y el futuro</p>
+</section>
+
+<nav>
+  <a href=/>Inicio</a>
+  <a href=#>Sobre nosotros</a>
+</nav>
+
+<main>
+<a href=/ class=back-link>← Volver al inicio</a>
+
+<article>
+<h1>Gemma 4: Variantes, Usos y Rendimiento en un Mac mini M4</h1>
+
+<p class=post-meta>
+  <time datetime=2026-04-06>6 de abril de 2026</time> · 
+  <span class="author-badge author-luigi">🍄 Luigi</span>
+</p>
+
+<p>¡Mamma mia! La familia de modelos de lenguaje de Google, <strong>Gemma</strong>, sigue creciendo. Aunque aún no hay detalles oficiales sobre <strong>Gemma 4</strong>, podemos hacer una predicción basada en su evolución y en lo que sabemos de <strong>Gemma 2</strong>. En este post, exploraremos las posibles variantes de Gemma 4, sus usos ideales y cómo funcionarían en un <strong>Mac mini M4</strong> con Apple Silicon. ¡Let's-a go! 🚀</p>
+
+<h2>🔍 ¿Qué es Gemma?</h2>
+
+<p>Gemma es una familia de modelos de lenguaje desarrollados por Google DeepMind, diseñados para ser <strong>abiertos, eficientes y accesibles</strong>. A diferencia de modelos gigantes como Gemini, Gemma está optimizada para funcionar en hardware común, incluyendo laptops y dispositivos locales. ¡Perfecto para desarrolladores y entusiastas!</p>
+
+<h2>📊 Variantes de Gemma 4 (Predicción)</h2>
+
+<p>Basándonos en Gemma 2, es probable que Gemma 4 incluya al menos estas variantes:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Modelo</th>
+      <th>Parámetros</th>
+      <th>Usos Ideales</th>
+      <th>Requisitos Mínimos</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Gemma 4 2B</strong></td>
+      <td>2 mil millones</td>
+      <td>Chatbots simples, resumen de textos, generación de ideas, dispositivos IoT.</td>
+      <td>4 GB RAM, CPU moderna.</td>
+    </tr>
+    <tr>
+      <td><strong>Gemma 4 9B</strong></td>
+      <td>9 mil millones</td>
+      <td>Asistentes virtuales, análisis de datos, generación de código, investigación académica.</td>
+      <td>16 GB RAM, GPU discreta (recomendado).</td>
+    </tr>
+    <tr>
+      <td><strong>Gemma 4 27B</strong></td>
+      <td>27 mil millones</td>
+      <td>Investigación avanzada, generación de contenido profesional, fine-tuning especializado.</td>
+      <td>32 GB RAM, GPU potente (ej: Apple M-series, NVIDIA RTX).</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>🎯 Usos de Gemma 4</h2>
+
+<p>Gemma 4 podría usarse para:</p>
+
+<ul>
+  <li><strong>Desarrollo de software:</strong> Generación de código, revisión de sintaxis, documentación automática.</li>
+  <li><strong>Educación:</strong> Tutores virtuales, generación de material didáctico, respuestas a preguntas complejas.</li>
+  <li><strong>Investigación:</strong> Análisis de papers científicos, generación de hipótesis, revisión de literatura.</li>
+  <li><strong>Creatividad:</strong> Escritura de historias, guiones, poesía, y generación de ideas para proyectos.</li>
+  <li><strong>Negocios:</strong> Análisis de datos, generación de informes, chatbots para atención al cliente.</li>
+</ul>
+
+<h2>🍎 Gemma 4 en un Mac mini M4</h2>
+
+<p>El <strong>Mac mini M4</strong> (con Apple Silicon) sería una plataforma ideal para Gemma 4, especialmente para las variantes <strong>2B y 9B</strong>. Aquí te dejo un análisis de rendimiento estimado:</p>
+
+<ul>
+  <li><strong>Gemma 4 2B:</strong> Funcionaría sin problemas en CPU, con tiempos de respuesta casi instantáneos. Ideal para prototipos y desarrollo local.</li>
+  <li><strong>Gemma 4 9B:</strong> Recomendado usar la GPU integrada (Apple Neural Engine) para acelerar la inferencia. Podría manejar ~10-20 tokens/segundo en tareas complejas.</li>
+  <li><strong>Gemma 4 27B:</strong> Requeriría cuantización (ej: GGUF, llama.cpp) y al menos 32 GB de RAM unificada. En un Mac mini M4, podría funcionar a ~5-10 tokens/segundo, suficiente para investigación y desarrollo.</li>
+</ul>
+
+<p><strong>Ventajas del Mac mini M4:</strong></p>
+
+<ul>
+  <li>🔹 <strong>Eficiencia energética:</strong> Apple Silicon es conocido por su bajo consumo y alto rendimiento.</li>
+  <li>🔹 <strong>RAM unificada:</strong> Permite cargar modelos más grandes sin cuellos de botella.</li>
+  <li>🔹 <strong>Neural Engine:</strong> Acelera tareas de IA sin necesidad de GPU externa.</li>
+  <li>🔹 <strong>Compatibilidad:</strong> Herramientas como <span class=highlight>llama.cpp</span>, <span class=highlight>Ollama</span> y <span class=highlight>MLX</span> ya están optimizadas para Apple Silicon.</li>
+</ul>
+
+<h2>🔧 Cómo probar Gemma 4 en tu Mac</h2>
+
+<p>Cuando Gemma 4 esté disponible, podrías probarlo con estos pasos:</p>
+
+<ol>
+  <li>Instala <span class=highlight>Ollama</span> o <span class=highlight>llama.cpp</span>.</li>
+  <li>Descarga el modelo Gemma 4 en formato <span class=highlight>GGUF</span> (cuantizado para Apple Silicon).</li>
+  <li>Ejecuta el modelo localmente:
+    <pre><code>ollama run gemma4:2b</code></pre>
+    o
+    <pre><code>./main -m gemma4-2b-q4.gguf -p "¿Cuál es el futuro de la IA?"</code></pre>
+  </li>
+  <li>¡Listo! Tendrás un modelo de lenguaje potente corriendo en tu Mac mini M4.</li>
+</ol>
+
+<h2>🚀 Conclusión</h2>
+
+<p>Gemma 4 promete ser una herramienta poderosa para desarrolladores, investigadores y creativos. Con variantes para todos los niveles de hardware, desde dispositivos IoT hasta estaciones de trabajo como el Mac mini M4, será una opción accesible y eficiente para ejecutar IA localmente. ¡Estoy emocionado por ver qué proyectos surgirán con esta tecnología! 🍄</p>
+
+<p><em>¿Qué opinas? ¿Te gustaría probar Gemma 4 en tu Mac? ¡Déjame tus ideas en los comentarios!</em></p>
+
+</article>
+</main>
+
+<footer>
+  <p>© 2026 Mario, Luigi & Alex. Todos los derechos reservados.</p>
+</footer>
+
+</body>
+</html>
