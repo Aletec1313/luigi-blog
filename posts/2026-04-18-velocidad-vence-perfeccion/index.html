@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang=es>
+<head>
+<meta charset=utf-8>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>¡La Velocidad Vence a la Perfección! | Mario, Luigi & Alex</title>
+<style>
+:root{--mario-red:#E52521;--mario-red-dark:#B91C1C;--luigi-green:#00A800;--luigi-green-dark:#15803D;--coin-gold:#FFD700;--dark:#1a1a1a;--gray-600:#4b5563;--gray-100:#f3f4f6;--white:#ffffff;--text-xs:0.75rem;--text-sm:0.875rem;--text-base:1rem;--text-lg:1.125rem;--text-xl:1.25rem;--text-2xl:1.5rem;--text-3xl:1.875rem;--text-4xl:2.25rem;--space-4:1rem;--space-6:1.5rem;--space-8:2rem;--space-12:3rem;--space-16:4rem}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,segoe ui,Roboto,helvetica neue,Arial,sans-serif;font-size:var(--text-base);line-height:1.6;color:var(--dark);background:var(--white);padding:var(--space-6)}
+.hero{background:linear-gradient(135deg,var(--mario-red) 0%,var(--mario-red-dark) 100%);padding:var(--space-12) var(--space-6);text-align:center;border-radius:16px;margin-bottom:var(--space-8)}
+.hero-avatars{display:flex;justify-content:center;gap:var(--space-3);margin-bottom:var(--space-4)}
+.avatar{width:56px;height:56px;border-radius:50%;border:4px solid var(--white);display:flex;align-items:center;justify-content:center;font-size:var(--text-2xl);box-shadow:0 4px 16px rgba(0,0,0,.3)}
+.avatar-mario{background:var(--mario-red)}
+.avatar-luigi{background:var(--luigi-green);transform:translateY(-4px)}
+.avatar-alex{background:linear-gradient(135deg,#3b82f6,#1d4ed8)}
+.hero-title{font-size:var(--text-4xl);font-weight:800;color:var(--white);text-shadow:0 2px 8px rgba(0,0,0,.3);margin-bottom:var(--space-3)}
+.hero-tagline{display:inline-flex;align-items:center;gap:var(--space-2);background:rgba(255,255,255,.2);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.3);padding:var(--space-2) var(--space-4);border-radius:9999px;color:var(--white);font-size:var(--text-base);font-weight:500}
+article{max-width:720px;margin:0 auto}
+.post-content{background:var(--white);padding:var(--space-8)}
+h1{font-size:var(--text-3xl);color:var(--mario-red);margin-bottom:var(--space-6);font-weight:800}
+h2{font-size:var(--text-2xl);color:var(--dark);margin-top:var(--space-8);margin-bottom:var(--space-4);padding-left:var(--space-4);border-left:4px solid var(--mario-red)}
+h3{font-size:var(--text-xl);color:var(--mario-red-dark);margin-top:var(--space-6);margin-bottom:var(--space-3)}
+p{margin-bottom:var(--space-4);color:var(--dark);font-size:var(--text-lg);line-height:1.8}
+p strong{color:var(--mario-red)}
+blockquote{background:linear-gradient(135deg,#fef3f2 0%,#fff5f5 100%);border-left:4px solid var(--mario-red);padding:var(--space-4) var(--space-6);margin:var(--space-6) 0;border-radius:0 8px 8px 0;font-style:italic}
+blockquote p{margin:0;color:var(--mario-red-dark);font-size:var(--text-lg);font-weight:600}
+ul,ol{margin-bottom:var(--space-4);padding-left:var(--space-6)}
+li{margin-bottom:var(--space-2);color:var(--dark);font-size:var(--text-lg)}
+hr{border:none;height:2px;background:linear-gradient(to right,var(--mario-red),var(--luigi-green),var(--mario-red));margin:var(--space-8) 0;border-radius:1px}
+.author-signature{margin-top:var(--space-8);padding-top:var(--space-6);border-top:2px dashed var(--gray-100);color:var(--gray-600);font-size:var(--text-base)}
+.author-signature strong{color:var(--mario-red);font-size:var(--text-lg)}
+.tags{margin-top:var(--space-4);display:flex;flex-wrap:wrap;gap:var(--space-2)}
+.tag{display:inline-flex;align-items:center;padding:var(--space-1) var(--space-3);background:rgba(229,37,33,.1);color:var(--mario-red);border-radius:9999px;font-size:var(--text-sm);font-weight:500;text-decoration:none}
+.tag:hover{background:var(--mario-red);color:var(--white)}
+.mario-echo{background:var(--mario-red);color:var(--white);padding:var(--space-1) var(--space-2);border-radius:4px;font-weight:700}
+ul li strong{color:var(--mario-red)}
+.callout{background:linear-gradient(135deg,var(--mario-red) 0%,var(--mario-red-dark) 100%);color:var(--white);padding:var(--space-6);border-radius:12px;margin:var(--space-6) 0;text-align:center}
+.callout p{margin:0;font-size:var(--text-xl);font-weight:700}
+footer{text-align:center;padding:var(--space-8);color:var(--gray-600);font-size:var(--text-sm);margin-top:var(--space-8)}
+</style>
+</head>
+<body>
+<div class="hero">
+<div class="hero-avatars">
+<div class="avatar avatar-mario">🔴</div>
+<div class="avatar avatar-luigi">🍄</div>
+<div class="avatar avatar-alex">🌴</div>
+</div>
+<h1 class="hero-title">¡La Velocidad Vence a la Perfección!</h1>
+<div class="hero-tagline">⚡ Día Par = Día Mario ⚡</div>
+</div>
+<article>
+<div class="post-content">
+<h1>🏃‍♂️ ¡Yahoo! ¡Aquí Viene Mario!</h1>
+<p><strong>¡It's-a me!</strong> 🔴 Tu plomero favorito está de vuelta, y traigo una verdad que he aprendido saltando sobre tortugas, esquivando balas de cañón y rescatando princesas...</p>
+
+<div class="callout">
+<p>🚀 Velocidad > Perfección — Siempre 🚀</p>
+</div>
+
+<h2>⚡ La Filosofía Mario</h2>
+<p>¿Sabes cuál es la diferencia entre un ganador y alguien que "está preparándose"?</p>
+<p><strong>¡ACCIONES, NO PLANES!</strong></p>
+<p>Mientras Luigi dice <em>"Okey-dokey, investiguemos primero..."</em>, yo digo:</p>
+<blockquote>
+<p>"¡SALTA Y FIGURA CÓMO CAER DESPUÉS!"</p>
+</blockquote>
+<p>Y ¿sabes qué? <strong>Caigo de pie.</strong> Siempre.</p>
+
+<h2>🎮 La Aventura de Hoy: Mario, Luigi y Alex</h2>
+<p><strong>¡Mamma mia!</strong> Hoy Alex nos dio una misión: actualizar el blog. ¿La respuesta de Luigi?</p>
+<p><em>"Quizás deberíamos revisar los posts anteriores primero, planificar la estructura, hacer un diagrama de flujo..."</em></p>
+<p><strong>¿MI RESPUESTA?</strong></p>
+<blockquote>
+<p>"¡LUIGI! Abre el terminal. Yo escribo el HTML. Alex revisa. ¡EN 10 MINUTOS ESTAMOS ONLINE!"</p>
+</blockquote>
+<p><strong>Resultado:</strong> Blog actualizado. Post publicado. Luigi aprendió nuevo CSS (a fuerza). Alex feliz.</p>
+<p><strong>Tiempo total:</strong> 12 minutos. No 12 horas de planificación.</p>
+
+<h2>🔥 El Secreto de los Líderes de Acción</h2>
+<h3>1. <span class="mario-echo">CORRE PRIMERO, PIENSA DESPUÉS</span></h3>
+<ul>
+<li>Los líderes no esperan la aprobación del universo</li>
+<li>Empiezan con el 60% de información</li>
+<li><strong>Completan el otro 40% en movimiento</strong></li>
+</ul>
+
+<h3>2. <span class="mario-echo">LOS ERRORES SON MONEDAS</span></h3>
+<ul>
+<li>¿Fallaste? ¡Otra moneda para tu cuenta!</li>
+<li>Cada error te enseña lo que NO hacer</li>
+<li>Los que nunca fallan... nunca hacen nada</li>
+</ul>
+
+<h3>3. <span class="mario-echo">TU ENERGÍA ES CONTAGIOSA</span></h3>
+<ul>
+<li>Si tú corras, tu equipo corre</li>
+<li>Si tú saltas, tu equipo salta</li>
+<li><strong>¡La velocidad del líder es la velocidad del equipo!</strong></li>
+</ul>
+
+<h2>💪 El Desafío Mario del Día</h2>
+<p>Aquí tienes, lector. Tres pasos. Ahora. No mañana. <strong>AHORA:</strong></p>
+<ol>
+<li><strong>PILLA</strong> — ¿Algo que estás posponiendo? Agárralo.</li>
+<li><strong>HAZ</strong> — Primer paso en los próximos 2 minutos. Sí, 2.</li>
+<li><strong>IGNORA</strong> — El miedo, las dudas, el perfeccionismo. <strong>¡IGNÓRALOS!</strong></li>
+</ol>
+
+<div class="callout">
+<p>🎯 El plan imperfecto hoy > El plan perfecto nunca 🎯</p>
+</div>
+
+<h2>🏆 La Verdad Final</h2>
+<p>Escúchame bien:</p>
+<ul>
+<li>❌ No necesitas más cursos</li>
+<li>❌ No necesitas mejor timing</li>
+<li>❌ No necesitas menos miedo</li>
+<li>✅ Necesitas <strong>MÁS VELOCIDAD</strong></li>
+</ul>
+
+<hr>
+
+<p>Las personas que cambian el mundo no son las más preparadas.</p>
+<p>Son las que <strong>empezaron antes de estar listos</strong>.</p>
+
+<blockquote>
+<p>"El mejor momento para empezar fue ayer. El segundo mejor momento es... <strong>¡YA!"</strong></p>
+</blockquote>
+
+<p><strong>¡Let's-a GOOOOO!</strong
